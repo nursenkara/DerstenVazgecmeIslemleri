@@ -1,0 +1,2573 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UniOgrenci.Master.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="M:UniOgrenci.Master.Web.UI.IOgrenciPage.GrupKodlari(UniOgrenci.Master.Enums.KodGrup)">
+            <summary>
+            Implemente eden sinif bir grubun altına tanimli tum kod listesini döndürmelidir.
+            </summary>
+            <param name="kodGrupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.IOgrenciPage.GrupKodlari(System.Int32)">
+            <summary>
+            Implemente eden sinif bir grubun altına tanimli tum kod listesini döndürmelidir.
+            </summary>
+            <param name="kodGrupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.IOgrenciPage.GetGrup(UniOgrenci.Master.Enums.KodGrup)">
+            <summary>
+            Verilen kod enumuna karşılık gelen kod nesnesini döndürür.
+            </summary>
+            <param name="grup"></param>
+            <returns></returns>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.IOgrenciPage.OgrenciMaster">
+            <summary>
+            Implemente eden sinif OgrenciMaster nesnesinin bir ornegini döndürmelidir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.IOgrenciPage.TumKodlar">
+            <summary>
+            Implemente eden sinif tum kod listesini döndürmelidir.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.OgrenciBasePage`1">
+            <summary>
+            Ogrenci projesinin tüm sayfalarının tureyeceği temel sayfa.
+            </summary>
+            <typeparam name="TUygulama"></typeparam>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.GetKodByID(System.Int32)">
+            <summary>
+            Tüm kodların bulunduğu listeden istenen kod id li kod entitysini döner.
+            </summary>
+            <param name="KodID">İstenen kod idsi</param>
+            <returns>İstenen kod entitysi</returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.GrupKodlari(System.Int32)">
+            <summary>
+            Bir grubun altına tanımlanmış kod listesini döndürür.
+            </summary>
+            <param name="kodGrupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.GrupKodlari(UniOgrenci.Master.Enums.KodGrup)">
+            <summary>
+            Bir grubun altına tanımlanmış kod listesini döndürür.
+            </summary>
+            <param name="kodGrupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.GetGrup(UniOgrenci.Master.Enums.KodGrup)">
+            <summary>
+            Grup Kodunu döndürür.
+            </summary>
+            <param name="grup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.GetTitle">
+            <summary>
+            Sayfanın başlığını uygulamanın tanımına set eder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.UygulamaBazindaAnketAc">
+            <summary>
+            pageload un eventargs ı ve kullanılmak istenen sayfada bool deger true kullanılacak
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.ProjeID">
+            <summary>
+            UniOgrenci ProjeID değerini döndürür. Framework için gereklidir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.OgrenciUygulama">
+            <summary>
+            Business Logic işlemlerini yapan uygulama nesnesinin bir örneğini döndürür. Bu nesne sadece bir kere oluşturulup Session içinde tutulur.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.OgrenciMaster">
+            <summary>
+            OgrenciMaster nesnesini döndürür.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.SkipAnket">
+            <summary>
+            OgrenciMaster nesnesini döndürür.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.OgrenciBasePage`1.TumKodlar">
+            <summary>
+            Tüm kodların bulunduğu liste.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.BaseUI.OgrenciUserControl">
+            <summary>
+            Ogrenci projesinde kullanılan user controllerin türeyecegi base user control
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:UniOgrenci.Master.Web.UI.BaseUI.OgrenciUserControl.OgrenciPage" -->
+        <member name="P:UniOgrenci.Master.Web.UI.BaseUI.OgrenciUserControl.OgrenciMaster">
+            <summary>
+            OgrenciMaster nesnesini dondurur.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.HandlersModules.OgrImgHandler">
+            <summary>
+            Ogrenci fotolarını veritabanından okuyan http handler....
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.ReportBase.ImzaPanel.InitializeComponents(UniOgrenci.Master.Entities.ImzaTanim[])">
+            <summary>
+            imza bileşenlerinin ekrana çizilmesi
+            </summary>
+            <param name="_lines">Imzatanim elemanları</param>
+        </member>
+        <member name="P:UniOgrenci.Master.ReportBase.ImzaPanel.TextBoxHeight">
+            <summary>
+            TextBox yüksekliği
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.ReportBase.ImzaPanel.RowHeight">
+            <summary>
+            Satır yüksekliği
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.ReportBase.ImzaPanel.StyleofImzaUst">
+            <summary>
+            Çizilecek textboxlardan üst kısma gelen başıl textboxların sitili
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.ReportBase.ImzaPanel.StyleofImzaAlt">
+            <summary>
+            Çizilecek textboxlardan alt kısma gelen textboxların sitili
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.RadGridUtilities">
+            <summary>
+            Rad Grid ile ilgili ortak metodlar
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.RadGridUtilities.SetBoundColumnVisibility(Telerik.Web.UI.RadGrid,System.String,System.Boolean)">
+            <summary>
+            RadGrid'de GridBoundColumn'lar arasında dataField'ine göre bir kolonun Visible property'sini ayarlar
+            </summary>
+            <param name="grid"></param>
+            <param name="dataFieldName"></param>
+            <param name="visibility"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.KodComboResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.KodComboResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.KodComboResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.KodComboResources.Sec">
+            <summary>
+              Looks up a localized string similar to Seçiniz.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.Ara">
+            <summary>
+              Looks up a localized string similar to Ara.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.Getir">
+            <summary>
+              Looks up a localized string similar to Getir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.OgrenciBulunamadi">
+            <summary>
+              Looks up a localized string similar to Öğrenci bulunamadı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.OgrenciNo">
+            <summary>
+              Looks up a localized string similar to Öğrenci No:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.OgrenciNumarasiGiriniz">
+            <summary>
+              Looks up a localized string similar to Öğrenci numarası giriniz.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.OgrenciSecildi">
+            <summary>
+              Looks up a localized string similar to {0} öğrenci seçildi.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.Sec">
+            <summary>
+              Looks up a localized string similar to Seç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgrenciAramaResources.Temizle">
+            <summary>
+              Looks up a localized string similar to Temizle.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.Ara">
+            <summary>
+              Looks up a localized string similar to Ara.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.OgretimUyesiBulunamadi">
+            <summary>
+              Looks up a localized string similar to Öğretim üyesi bulunamadı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.OgretimUyesiSecildi">
+            <summary>
+              Looks up a localized string similar to {0} öğretim üyesi seçildi.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.Sec">
+            <summary>
+              Looks up a localized string similar to Seç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.TcKimlikNo">
+            <summary>
+              Looks up a localized string similar to T.C. Kimlik No.:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.TcKimlikNoGiriniz">
+            <summary>
+              Looks up a localized string similar to T.C. Kimlik No. giriniz.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.UcOgretimUyesiAramaResources.Temizle">
+            <summary>
+              Looks up a localized string similar to Temizle.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.OgrenciWebControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:UniOgrenci.Master.Web.UI.UserControls.OgrenciWebControl.OgrenciPage" -->
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.DataBind">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.ClearSelection">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.ClearItems">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.InsertItem(System.Int32,UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem)">
+            <summary>
+            
+            </summary>
+            <param name="itemIndex"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.CreateChildControls">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.OnInit(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.EmptyMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.DataTextField">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.DataValueField">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.Filter">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.CheckBoxes">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.SelectionMode">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.TumunuSecVisible">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.TemizleVisible">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.DataSource">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBox.SelectedItems">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem.#ctor(System.String)">
+            <summary>
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem.#ctor(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="text"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem.Text">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.CheckListComboBoxItem.Value">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2">
+            <summary>
+            Öğrenci Arama Ekranı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.Focus">
+            <summary>
+            Arama Kutucuğuna focuslanma
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.RaisePostBackEvent(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.DefaultSkin">
+            <summary>
+            Toplam genişlik
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.PanelWidth">
+            <summary>
+            Toplam genişlik
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.Value">
+            <summary>
+            Seçili Öğrencinin OgrenciIDsi Geri Döndürülür Öğrenci Seçilmemişse 0 döner
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ShowPopupImage">
+            <summary>
+            Popup Butonu Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ShowAraImage">
+            <summary>
+            Getir Butonu Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ShowLabels">
+            <summary>
+            Öğrenci No Label'i Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ShowBackGroundColorStyle">
+            <summary>
+            User Controldeki Arama kısmının arka planı renklendirilsin mi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ReturnAsDataTable">
+            <summary>
+            User Controldeki geri dönüş datatable olarak mı olsun?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.MaxLength">
+            <summary>
+            Öğrenci no alanının maksimum değeri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.Focusla">
+            <summary>
+                
+            </summary>  
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciList">
+            <summary>
+            Araması yapılmış öğrenci listesi
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.AllowMultipleRowSelect">
+            <summary>
+            Çoklu öğrenci seçmek için bu kullanılabilir. Eğer bu özellik kullanılırsa OgrenciMultipleSelectedEvent birçok defa ateşlenecektir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.ShowOnlyActiveOrganizations">
+            <summary>
+                Sadece aktif olanlarmı görünsün?
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciSelectedEventHandler">
+            <summary>
+            Öğrenci Seçildi Olay Yakalayıcısı
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciMultipleSelectedEventHandler">
+            <summary>
+            Öğrenciler Seçildi Olay Yakalayıcısı
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciSearchedEventHandler">
+            <summary>
+            Öğrenci Aratıldığında tetiklenecek metod
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.DatatableMultipleSelectedEventHandler">
+            <summary>
+            Öğrenciler Seçildi Olay Yakalayıcısı
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciSelectedEvent">
+            <summary>
+            Öğrenci Seçildi Olayı
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciMultipleSelectedEvent">
+            <summary>
+            Öğrenciler Seçildi Olayı
+            </summary>
+            <param name="olist">Öğrenci Listesi Döner</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.OgrenciSearchedEvent">
+            <summary>
+            Öğrenci Aratıldı ise
+            </summary>
+            <param name="o">Bulunan Öğrenci (Bulunamazsa null)</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci2.DatatableMultipleSelectedEvent">
+            <summary>
+            Öğrenciler Seçildi Olayı
+            </summary>
+            <param name="olist">Öğrenci Listesini Datatable olarak Döner</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree">
+            <summary>
+            Verilen kod grubuna ait kod listesini döken Component.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.cmbUstBirim">
+            <summary>
+            UstBirim Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.cmbBirim">
+            <summary>
+            Birim Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.cmbAltBirim">
+            <summary>
+            AltBirim Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.cmbProgram">
+            <summary>
+            Program Combo
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.#ctor">
+            <summary>
+            Organizasyon Yaratılışı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.OnPreRender(System.EventArgs)">
+            <summary>
+            PreRender
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.CreateChildControls">
+            <summary>
+            ChildControols
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.LoadProgram(UniOgrenci.Master.Entities.Organizasyon,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="altBirimId"></param>
+            <param name="selectIndex"></param>
+            <param name="isaltbirim"></param>
+            <returns>Programlar varsa true, yoksa false döndürür</returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.ReBind">
+            <summary>
+            Bu metod ile en üst birim yeniden yüklenebilir
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.ProgramSelectedEventHandler">
+            <summary>
+            Program Seçildiğinde ateşlenecek event
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.OrganizasyonSelectedEventHandler">
+            <summary>
+            Organizasyon Seçildiğinde ateşlenecek event
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.GetActives">
+            <summary>
+            Sadece aktif olanlarmı görünsün?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.Direction">
+            <summary>
+            Combolar dikeymi yataymı dizilsin
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.Level">
+            <summary>
+            Üstbirim birim altbirim program seçeneklerinden hangileri gösterilsin?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.SelectedLevel">
+            <summary>
+            Seçili Seviye Idsi (Varsayılan 1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.SelectedOrganizationId">
+            <summary>
+            Seçili Organizasyon Idsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.SelectedProgramId">
+            <summary>
+            Seçili Program Idsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.UstBirimLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.BirimLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.AltBirimLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.ProgramLabel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.Width">
+            <summary>
+            Tabloya toplam genişlik verme
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.FixPopupIndex">
+            <summary>
+            Popup index düzenlensinmi
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.IsYetkiEnabled">
+            <summary>
+            Combolar yetkiyle çalışacakmı? (Varsayılan: true)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.EnableProgram">
+            <summary>
+            Program aktif olsun
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.FireAltBirim">
+            <summary>
+            Not: Birimin eğer programı varsa altbirimler yüklenir fakat altbirimler seçilerek programların doldurulması yapılmaz (19.12.2008)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.EventLevel">
+            <summary>
+            Level seviyesindeki son combodan event tetiklensin mi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.IListOrganizasyon">
+            <summary>
+            OgrenciMaster'daki TumOrganizasyonlar propertysini kullanarak Organizasyon listesini çeker...
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.IListOrganizasyonUser">
+            <summary>
+            Kullanıcının seçimlerini PageSession'da tutar.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.IListOrganizasyonProgram">
+            <summary>
+            OgrenciMaster'daki TumOrganizasyonProgramlar propertysini kullanarak OrganizasyonProgram listesini çeker...
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.SelectedOrganizasyon">
+            <summary>
+            
+            </summary>		
+            <returns>Bellekte Organizasyon varsa döndürür, yoksa null</returns>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.SelectedOrganizasyonProgram">
+            <summary>
+            Cachelenmiş OrganizasyonProgram bilgisini sorgulayabilirsiniz...
+            </summary>		
+            <returns>Bellekte OrganizasyonProgram varsa döndürür, yoksa null</returns>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.ProgramSelectedEvent">
+            <summary>
+            Program Seçildiğinde işlem yapılmak isteniyorsa
+            </summary>
+            <param name="selectedProgramID">Seçilen Programın IDsi</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.OrganizationTree.OrganizasyonSelectedEvent">
+            <summary>
+            Organizasyon Seçildiğinde işlem yapılmak isteniyorsa
+            </summary>
+            <param name="selectedOrganizasyonID">Seçilen Programın IDsi</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Properties.WebResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Properties.WebResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Properties.WebResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Adi">
+            <summary>
+              Looks up a localized string similar to Adı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Adi2">
+            <summary>
+              Looks up a localized string similar to Adı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.anadalyandal">
+            <summary>
+              Looks up a localized string similar to Eğitim Dalı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.degerlendirmeSistemi">
+            <summary>
+              Looks up a localized string similar to Değerlendirme Sistemi.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.durum">
+            <summary>
+              Looks up a localized string similar to Durum:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.durum2">
+            <summary>
+              Looks up a localized string similar to Durum.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Durumu">
+            <summary>
+              Looks up a localized string similar to Kadro Durumu: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.EgitimDali">
+            <summary>
+              Looks up a localized string similar to Eğitim Dalı :.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.EmekliSicilNo">
+            <summary>
+              Looks up a localized string similar to Emekli Sicil No: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.getir">
+            <summary>
+              Looks up a localized string similar to Getir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.KadroDurumu">
+            <summary>
+              Looks up a localized string similar to Durumu: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.KayitlanmaSekli">
+            <summary>
+              Looks up a localized string similar to Kayıtlanma Şekli:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.kayitYili">
+            <summary>
+              Looks up a localized string similar to Kayıt Yılı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.kayitYili2">
+            <summary>
+              Looks up a localized string similar to Kayıt Yılı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.kayitYok">
+            <summary>
+              Looks up a localized string similar to Listelenecek kayıt bulunamadı..
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Listele">
+            <summary>
+              Looks up a localized string similar to Listele.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.MesajKullaniciSec">
+            <summary>
+              Looks up a localized string similar to Lütfen mesaj göndermek istediğiniz kullanıcıları seçiniz.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.mezTarihiBaslama">
+            <summary>
+              Looks up a localized string similar to Mezuniyet Tar. Başlama:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.mezTarihiBitis">
+            <summary>
+              Looks up a localized string similar to Mezuniyet Tar. Bitiş: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.msjGonder">
+            <summary>
+              Looks up a localized string similar to Seçilen öğrencilere mesaj gönder.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.OgrenciArama2">
+            <summary>
+              Looks up a localized string similar to Detaylı Arama.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.OgrenciAramaEkrani">
+            <summary>
+              Looks up a localized string similar to Öğrenci Arama Ekranı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.OgrenciNo">
+            <summary>
+              Looks up a localized string similar to Öğrenci No.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Organizasyon">
+            <summary>
+              Looks up a localized string similar to Organizasyon: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Organizasyon2">
+            <summary>
+              Looks up a localized string similar to Organizasyon.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.OrganizasyonProgram2">
+            <summary>
+              Looks up a localized string similar to Organizasyon Program.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Sec">
+            <summary>
+              Looks up a localized string similar to Seç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.seciniz">
+            <summary>
+              Looks up a localized string similar to Seçiniz.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.sinif">
+            <summary>
+              Looks up a localized string similar to Sınıf: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Soyadi">
+            <summary>
+              Looks up a localized string similar to Soyadı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Soyadi2">
+            <summary>
+              Looks up a localized string similar to Soyadı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Tamam">
+            <summary>
+              Looks up a localized string similar to Tamam.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.TCKimlik">
+            <summary>
+              Looks up a localized string similar to TC Kimlik No: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.TCKimlik2">
+            <summary>
+              Looks up a localized string similar to TC Kimlik No.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Unvan">
+            <summary>
+              Looks up a localized string similar to Ünvanı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.Vazgec">
+            <summary>
+              Looks up a localized string similar to Vazgeç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.yariyil">
+            <summary>
+              Looks up a localized string similar to Yarıyıl: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgrenciResources.yonetmelik">
+            <summary>
+              Looks up a localized string similar to Yönetmelik:.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.GridReportToolsResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.GridReportToolsResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.GridReportToolsResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.GridReportToolsResources.PageSize">
+            <summary>
+              Looks up a localized string similar to Sayfadaki Kayıt: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.GridReportToolsResources.PageStat">
+            <summary>
+              Looks up a localized string similar to Gösterilen Sayfa: {0} Toplam: {1}, Toplam Kayıt: {2}.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Adi">
+            <summary>
+              Looks up a localized string similar to Adı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.AramaSonucuFormat">
+            <summary>
+              Looks up a localized string similar to {0} kayıt bulundu.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Asama">
+            <summary>
+              Looks up a localized string similar to Aşama.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Ders">
+            <summary>
+              Looks up a localized string similar to Ders.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersAdi">
+            <summary>
+              Looks up a localized string similar to Ders Adı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersBulunamadi">
+            <summary>
+              Looks up a localized string similar to Ders bulunamadı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersKatalogu">
+            <summary>
+              Looks up a localized string similar to Ders Kataloğu.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersKodu">
+            <summary>
+              Looks up a localized string similar to Ders Kodu.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersKoduEmptyMessage">
+            <summary>
+              Looks up a localized string similar to Ders kodu....
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersMufredat">
+            <summary>
+              Looks up a localized string similar to Ders Müfredatı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DersSec">
+            <summary>
+              Looks up a localized string similar to Lütfen bir ders seçimi yapınız..
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.DetayliDersAra">
+            <summary>
+              Looks up a localized string similar to Detaylı ders ara....
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Donem">
+            <summary>
+              Looks up a localized string similar to Dönem.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Durum">
+            <summary>
+              Looks up a localized string similar to Durum.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.EctsKredi">
+            <summary>
+              Looks up a localized string similar to ECTS Kredi.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Getir">
+            <summary>
+              Looks up a localized string similar to Getir....
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Kodu">
+            <summary>
+              Looks up a localized string similar to Kodu.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Kredi">
+            <summary>
+              Looks up a localized string similar to Kredi.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Listele">
+            <summary>
+              Looks up a localized string similar to Listele.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Organizasyon">
+            <summary>
+              Looks up a localized string similar to Organizasyon.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.OrgFiltreSec">
+            <summary>
+              Looks up a localized string similar to Arama için birim seçmelisiniz..
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Sec">
+            <summary>
+              Looks up a localized string similar to Seç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.SecmeliGrup">
+            <summary>
+              Looks up a localized string similar to Seçmeli Grup.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.SelectSearchParam">
+            <summary>
+              Looks up a localized string similar to Arama yapmak için en az bir parametre seçmelisiniz....
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Sinif">
+            <summary>
+              Looks up a localized string similar to Sınıf.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.SiralamaKriter">
+            <summary>
+              Looks up a localized string similar to Sıralama Kriterleri.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Tamam">
+            <summary>
+              Looks up a localized string similar to Tamam.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Temizle">
+            <summary>
+              Looks up a localized string similar to Temizle.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Title">
+            <summary>
+              Looks up a localized string similar to Ders Arama Ekranı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Turu">
+            <summary>
+              Looks up a localized string similar to Türü.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Vazgec">
+            <summary>
+              Looks up a localized string similar to Vazgeç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Yariyil">
+            <summary>
+              Looks up a localized string similar to Yarı yıl.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.Yil">
+            <summary>
+              Looks up a localized string similar to Yıl.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.YillikDonemlik">
+            <summary>
+              Looks up a localized string similar to Yıllık/Dönemlik.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchDersResources.YillikDonemlikBaslik">
+            <summary>
+              Looks up a localized string similar to Y/D.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Adi">
+            <summary>
+              Looks up a localized string similar to Adı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Durumu">
+            <summary>
+              Looks up a localized string similar to Kadro Durumu: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.EmekliSicilNo">
+            <summary>
+              Looks up a localized string similar to Emekli Sicil No: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdAd">
+            <summary>
+              Looks up a localized string similar to Adı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdAkademilUnvan">
+            <summary>
+              Looks up a localized string similar to Akademik Ünvan.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdAktif">
+            <summary>
+              Looks up a localized string similar to Aktif.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdDurum">
+            <summary>
+              Looks up a localized string similar to Durum.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdEmekliSicilNo">
+            <summary>
+              Looks up a localized string similar to Emekli Sicil No.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdOrganizasyon">
+            <summary>
+              Looks up a localized string similar to Organizasyonu.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.grdSoyad">
+            <summary>
+              Looks up a localized string similar to Soyadı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.KadroDurumu">
+            <summary>
+              Looks up a localized string similar to Durumu: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Listele">
+            <summary>
+              Looks up a localized string similar to Listele.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Organizasyon">
+            <summary>
+              Looks up a localized string similar to Organizasyon: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Sec">
+            <summary>
+              Looks up a localized string similar to Seç.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Soyadi">
+            <summary>
+              Looks up a localized string similar to Soyadı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Tamam">
+            <summary>
+              Looks up a localized string similar to Tamam.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.TCKimlik">
+            <summary>
+              Looks up a localized string similar to TC Kimlik No: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Unvan">
+            <summary>
+              Looks up a localized string similar to Ünvanı: .
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.SearchOgretimUyesi.Vazgec">
+            <summary>
+              Looks up a localized string similar to Vazgeç.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.AltBirim">
+            <summary>
+              Looks up a localized string similar to Alt Birim:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.AsamaAltSira">
+            <summary>
+              Looks up a localized string similar to Aşama Alt Sıra:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.AsamaKodu">
+            <summary>
+              Looks up a localized string similar to Aşama Kodu:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.AsamaSira">
+            <summary>
+              Looks up a localized string similar to Aşama Sıra:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Birim">
+            <summary>
+              Looks up a localized string similar to Birim:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Donem">
+            <summary>
+              Looks up a localized string similar to Dönem.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Export">
+            <summary>
+              Looks up a localized string similar to Aktar.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.hataKodu">
+            <summary>
+              Looks up a localized string similar to Hata Kodu :.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.OgretimUyesiAramaTitle">
+            <summary>
+              Looks up a localized string similar to Öğretim Üyesi Arama Ekranı.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Program">
+            <summary>
+              Looks up a localized string similar to Program:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.SelectText">
+            <summary>
+              Looks up a localized string similar to Seçiniz.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.UstBirim">
+            <summary>
+              Looks up a localized string similar to Üst Birim:.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.Resources.Lang.OgrenciMasterWebResources.Yil">
+            <summary>
+              Looks up a localized string similar to Yıl.
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo">
+            <summary>
+            Verilen kod grubuna ait kod listesini döken Component.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.cmbAsamaKodu">
+            <summary>
+            AsamaKodu Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.cmbAsamaSira">
+            <summary>
+            AsamaSıra Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.cmbAsamaAltSira">
+            <summary>
+            AsamaAltSira Combo
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.#ctor">
+            <summary>
+            Aşamanın Yaratılışı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.OnInit(System.EventArgs)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.OnPreRender(System.EventArgs)">
+            <summary>
+            PreRender
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.CreateChildControls">
+            <summary>
+            ChildControols
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.ReBind">
+            <summary>
+            Bu metod ile en üst Aşama seviyesi yeniden yüklenebilir
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.Focus">
+            <summary>
+            Focuslanma işlemini yapar
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.Direction">
+            <summary>
+            Combolar dikeymi yataymı dizilsin
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.SelectedLevel">
+            <summary>
+            Seçili Seviye Idsi (Varsayılan 1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.SelectedAsamaID">
+            <summary>
+            Seçili Asama Idsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.SelectedAsama">
+            <summary>
+            Seçili Asama (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.LabelWidths">
+            <summary>
+            Labelların genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.ComboboxWidths">
+            <summary>
+            Combobox genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.Width">
+            <summary>
+            Genişlik Belirle
+            </summary>
+            
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.FixPopupIndex">
+            <summary>
+            Popup index fix
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.ProgramID">
+            <summary>
+            Bir programın aşamaları gösterilecekse (Default -1), Eğer bağsız ProgramID ise değeri -1e döner
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.AsamaCombo.Asamalar">
+            <summary>
+            Statik aşama bileşenleri
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.MessageType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.MessageType.Alert">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.MessageType.Confirm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.CreateChildControls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.ShowMessage(System.String,System.String,UniOgrenci.Master.Web.UI.UserControls.MessageType,System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.MessageBox.ShowMessageOnClient(System.String,System.String,UniOgrenci.Master.Web.UI.UserControls.MessageType,System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.MessageBox.OkClicked">
+            <summary>
+            Tamam /Evet Butonuna basıldığında
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.MessageBox.CancelClicked">
+            <summary>
+            Hayır Butonuna basıldığında
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.MainPanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.MesajType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.Baslik">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.Mesaj">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.Param">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.MessageBox.ButtonControlID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.MessageBox.Clicked">
+            <summary>
+            
+            </summary>
+            <param name="p_Param"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.CreateChildControls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Update">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Show">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.ShowOnClient(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.CloseOnClient(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.PopupBox.RaisePostBackEvent(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.ContentTemplateNoUpdate">
+            <summary>
+            Mesaj kısmında görünmesi istenen html
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.ContentTemplate">
+            <summary>
+            Mesaj kısmında görünmesi istenen html
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Baslik">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.XButton">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.MainPanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.MPEID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.Width">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.UpdateMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.ButtonControlID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.PopupBox.ButtonControlID2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.ProgressTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.ProgressTemplate.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.ProgressTemplate.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="p_path"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.ProgressTemplate.InstantiateIn(System.Web.UI.Control)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.DersAramaModu">
+            <summary>
+                SearchDers componentinin izin verilen arama modlarını belirtmek için kullanılır.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.DersAramaModu.DersTanim">
+            <summary>
+                Sadece Ders tablosu.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.DersAramaModu.DersMufredat">
+            <summary>
+                Sadece Müfredat tablosu.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.DersAramaModu.Hepsi">
+            <summary>
+                Bütün heryerde arama
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchDers">
+            <summary>
+                Ders arama için kullanılabilecek genel amaçlı user control...
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.#ctor">
+            <summary>
+                Yeni bir SearchDers nesnesi yaratır.
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.CreateChildControls">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.OnLoad(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.OnPreRender(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchDers.Focus">
+            <summary>
+                Sets input focus to a RadInput.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchDers.SelectedOrganizasyon">
+            <summary>
+                Aramada seçilen yada seçilmesi istenen Organizasyon
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchDers.SelectedOrganizasyonProgram">
+            <summary>
+                Aramada seçilen yada seçilmesi istenen Organizasyon Program
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchDers.SelectedMufredatID">
+            <summary>
+                Seçilmiş kayıt müfredat kaydıysa
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchDers.DersSelected">
+            <summary>
+                Ders Seçilmişse
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchDers.DersSelectedEventHandler">
+            <summary>
+                Ders Selected Event Handler
+            </summary>
+            <param name="dersId"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo">
+            <summary>
+            Verilen kod grubuna ait kod listesini döken Component.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.cmbYil">
+            <summary>
+            AsamaKodu Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.cmbDonem">
+            <summary>
+            AsamaSıra Combo
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.#ctor">
+            <summary>
+            YılDonemin Yaratılışı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.OnInit(System.EventArgs)">
+            <summary>
+            Initialize
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.OnPreRender(System.EventArgs)">
+            <summary>
+            REnder edilmesi
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.OnLoad(System.EventArgs)">
+            <summary>
+            Yükleme sırasında event bağla
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.CreateChildControls">
+            <summary>
+            ChildControols
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.ReBind">
+            <summary>
+            Comboların yeniden yüklenmesi için
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.DonemSelectedEventHandler">
+            <summary>
+            Seçilecek Dönem için Eventı yakalayınız...
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.Direction">
+            <summary>
+            Combolar dikeymi yataymı dizilsin
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.ShowDonem">
+            <summary>
+            Donem Combosu Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.IkiNoktaAyriOlsun">
+            <summary>
+            Labellar yanında 2 nokta ayrı mı olsun
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.Yil">
+            <summary>
+            Seçili Seviye Idsi (Varsayılan 1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.Donem">
+            <summary>
+            Dönem KodIdsi
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.DonemText">
+            <summary>
+            Seçilen Dönemin Tanımını döndürür.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.DonemComboWidth">
+            <summary>
+            Combobox genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.YilComboboxWidth">
+            <summary>
+            Combobox genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.FixPopupIndex">
+            <summary>
+            Popup index fix
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.LabelYil">
+            <summary>
+            Yıl Adı ne olacak?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.LabelYilWidth">
+            <summary>
+            Labelların genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.LabelDonem">
+            <summary>
+            Dönem Adı ne olacak
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.LabelDonemWidth">
+            <summary>
+            Labelların genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.AutoSelectYilDonem">
+            <summary>
+            Otomatik YılDönem Seçsinmi?
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.DonemSelected">
+            <summary>
+            Seçili Yıl ve Dönem Döndürülür
+            </summary>
+            <param name="yil">Seçili Yıl</param>
+            <param name="donem">Seçili Dönem</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci">
+            <summary>
+            Öğrenci Arama Ekranı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.#ctor">
+            <summary>
+            Öğrenci arama
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OnInit(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OnLoad(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OnPreRender(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.CreateChildControls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.m_Grid_NeedDataSource(System.Object,Telerik.Web.UI.GridNeedDataSourceEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Focus">
+            <summary>
+            Arama Kutucuğuna focuslanma
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.RaisePostBackEvent(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.PanelWidth">
+            <summary>
+            Toplam genişlik
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Width">
+            <summary>
+            TextBox ın Genişliği
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Text">
+            <summary>
+            Seçili Öğrencinin Öğrenci Numarası Bilgisi Alınabilir
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Value">
+            <summary>
+            Seçili Öğrencinin OgrenciIDsi Geri Döndürülür Öğrenci Seçilmemişse 0 döner
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.ActivateImage">
+            <summary>
+            Resmin otomatik Aktivasyonu
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.ShowAraImage">
+            <summary>
+            Getir Butonu Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.IsLoaded">
+            <summary>
+            Yüklendimi kontrolü
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.MaxLength">
+            <summary>
+            Öğrenci no alanının maksimum değeri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.Focusla">
+            <summary>
+                
+            </summary>    
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciList">
+            <summary>
+            Araması yapılmış öğrenci listesi
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.AllowMultipleRowSelect">
+            <summary>
+            Çoklu öğrenci seçmek için bu kullanılabilir. Eğer bu özellik kullanılırsa OgrenciMultipleSelectedEvent birçok defa ateşlenecektir.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.GetActiveOrganizations">
+            <summary>
+                Sadece aktif olanlarmı görünsün?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OrganizasyonUser">
+            <summary>
+            Kullanıcının yetkili olduğu organizasyonlar
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciSelectedEventHandler">
+            <summary>
+            Öğrenci Seçildi Olay Yakalayıcısı
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciMultipleSelectedEventHandler">
+            <summary>
+            Öğrenciler Seçildi Olay Yakalayıcısı
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciSearchedEventHandler">
+            <summary>
+            Öğrenci Aratıldığında tetiklenecek metod
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciSelectedEvent">
+            <summary>
+            Öğrenci Seçildi Olayı
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciMultipleSelectedEvent">
+            <summary>
+            Öğrenciler Seçildi Olayı
+            </summary>
+            <param name="olist">Öğrenci Listesi Döner</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgrenci.OgrenciSearchedEvent">
+            <summary>
+            Öğrenci Aratıldı ise
+            </summary>
+            <param name="o">Bulunan Öğrenci (Bulunamazsa null)</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.GridReportTools">
+            <summary>
+            Summary description for ServerControl1
+            </summary>
+            
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.CreateChildControls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportToExcel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportToExcelML">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportToCSV">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportToWord">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportToPDF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.ExportImagesSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.GridReportTools.RadGridName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.KodCombo">
+            <summary>
+            Verilen kod grubuna ait kod listesini döken Component.
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.#ctor">
+            <summary>
+            Yeni bir KodCombo nesnesi oluşturur.
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.OnInit(System.EventArgs)">
+            <summary>
+            Sayfa yuklendiginde çalışır.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.OnPreRender(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.CreateChildControls">
+            <summary>
+            Alt Controller eklenir.
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.KodCombo.IstenmeyenKodIDList(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Listelenmesi istenmeyen Kodid leri combodan çıkartır
+            </summary>
+            <param name="KodIDler"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.KodCombo.KodGrupId">
+            <summary>
+            Listelenmesi istenen kod grup degeri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.KodCombo.SelectedKod">
+            <summary>
+            Listeden seçilen Kodu döndürür. Yada seçilecek olan kodu alır.(SelectedItem)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.KodCombo.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.KodCombo.Width">
+            <summary>
+            Genişlik
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.Alignment">
+            <summary>
+                Yerleşim
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Alignment.Vertical">
+            <summary>
+                Dikey
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Alignment.Horizontal">
+            <summary>
+                Yatay
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.Organization">
+            <summary>
+                Verilen kod grubuna ait kod listesini döken Component.
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Organization._cmbAltBirim">
+            <summary>
+                AltBirim Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Organization._cmbBirim">
+            <summary>
+                Birim Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Organization._cmbProgram">
+            <summary>
+                Program Combo
+            </summary>
+        </member>
+        <member name="F:UniOgrenci.Master.Web.UI.UserControls.Organization._cmbUstBirim">
+            <summary>
+                UstBirim Combo
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.Organization.#ctor">
+            <summary>
+                Organizasyon Yaratılışı
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.Organization.OnInit(System.EventArgs)">
+            <summary>
+                Initialize
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.Organization.CreateChildControls">
+            <summary>
+                ChildControols
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.Organization.LoadProgram(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="altBirimId"></param>
+            <param name="selectIndex"></param>
+            <param name="isaltbirim"></param>
+            <returns>Programlar varsa true, yoksa false döndürür</returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.Organization.ReBind">
+            <summary>
+                Bu metod ile en üst birim yeniden yüklenebilir
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.Organization.ProgramSelectedEventHandler">
+            <summary>
+                Program Seçildiğinde ateşlenecek event
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.Organization.OrganizasyonSelectedEventHandler">
+            <summary>
+                Organizasyon Seçildiğinde ateşlenecek event
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.BirimList">
+            <summary>
+                Üst Birim Altındaki Birimler...
+            </summary>
+            <returns>Üst Birim seçilmemişse null döndürür.</returns>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.GetActives">
+            <summary>
+                Sadece aktif olanlarmı görünsün?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.IkiNoktaAyriOlsun">
+            <summary>
+                Labellar yanında 2 nokta ayrı mı olsun
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.Direction">
+            <summary>
+                Combolar dikeymi yataymı dizilsin
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.Level">
+            <summary>
+                Üstbirim birim altbirim program seçeneklerinden hangileri gösterilsin?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.OzelYetki">
+            <summary>
+                Spesifik yetkinin adı.
+                Organizasyon yetkisi varsayılan olaran 'uygulama' yetkisine bakar.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedLevel">
+            <summary>
+                Seçili Seviye Idsi (Varsayılan 1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedOrganizationId">
+            <summary>
+                Seçili Organizasyon Idsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedUstBirimId">
+            <summary>
+                Seçili Organizasyon UstBirimIDsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedBirimId">
+            <summary>
+                Seçili Organizasyon BirimIDsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedAltBirimId">
+            <summary>
+                Seçili Organizasyon UstBirimIDsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedProgramId">
+            <summary>
+                Seçili Program Idsi (Varsayılan -1)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.UstBirimLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.CmbUstBirimEnabled">
+            <summary>
+                ust birim combosunu kapatmak için
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.CmbBirimEnabled">
+            <summary>
+                birim combosunu kapatmak için
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.CmbAltBirimEnabled">
+            <summary>
+                alt birim combosunu kapatmak için
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.BirimLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.AltBirimLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.ProgramLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.Width">
+            <summary>
+                Tabloya toplam genişlik verme
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.FixPopupIndex">
+            <summary>
+                Popup index düzenlensinmi
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.EnableUstBirim">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.EnableBirim">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.EnableAltBirim">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.IsYetkiEnabled">
+            <summary>
+                Combolar yetkiyle çalışacakmı? (Varsayılan: true)
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.EnableProgram">
+            <summary>
+                Program aktif olsun
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.LabelWidths">
+            <summary>
+                Labelların genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.ComboboxWidths">
+            <summary>
+                Combobox genişlikleri
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.EventLevel">
+            <summary>
+                Level seviyesindeki son combodan event tetiklensin mi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.ListOrganizasyon">
+            <summary>
+                Cachelenmiş Organizasyon bilgisini sorgulayabilirsiniz...
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.ListOrganizasyonProgram">
+            <summary>
+                Cachelenmiş OrganizasyonProgram bilgisini sorgulayabilirsiniz...
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.OgrenciMaster">
+            <summary>
+                eğer kontrol loginsiz bi yerden kullanılacaksa base.OgrenciPage olmayacak
+                bu sebeple eğer uygulama BasePage ise öğrencimasterı kendim yaratacağım
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedOrganizasyon">
+            <summary>
+            </summary>
+            <returns>Bellekte Organizasyon varsa döndürür, yoksa null</returns>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.Organization.SelectedOrganizasyonProgram">
+            <summary>
+                Cachelenmiş OrganizasyonProgram bilgisini sorgulayabilirsiniz...
+            </summary>
+            <returns>Bellekte OrganizasyonProgram varsa döndürür, yoksa null</returns>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.Organization.OrganizasyonSelectedEvent">
+            <summary>
+                Organizasyon Seçildiğinde işlem yapılmak isteniyorsa
+            </summary>
+            <param name="selectedOrganizasyonID">Seçilen Programın IDsi</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.Organization.ProgramSelectedEvent">
+            <summary>
+                Program Seçildiğinde işlem yapılmak isteniyorsa
+            </summary>
+            <param name="selectedProgramID">Seçilen Programın IDsi</param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.#ctor">
+            <summary>
+                Const
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OnLoad(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OnInit(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OnPreRender(System.EventArgs)">
+            <summary>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.CreateChildControls">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.m_Grid_NeedDataSource(System.Object,Telerik.Web.UI.GridNeedDataSourceEventArgs)">
+            <summary>
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.GetSource">
+            <summary>
+                Sorgulama işlemi yapılsın
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.Focus">
+            <summary>
+                Focuslanma işleminin yapılması
+            </summary>
+        </member>
+        <member name="M:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.RaisePostBackEvent(System.String)">
+            <summary>
+            </summary>
+            <param name="eventArgument"></param>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.PanelWidth">
+            <summary>
+                Panel ne genişlite olacak
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.Width">
+            <summary>
+                Toplam Genişlik ne olacak
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.Value">
+            <summary>
+                Seçili Öğretim Üyesinin TC  Kimlik No
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OgretimUyesiID">
+            <summary>
+                Seçili Öğretim Üyesinin ID
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.ActivateImage">
+            <summary>
+                Imajı göster
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.ShowAraImage">
+            <summary>
+                Getir Butonu Gösterilsinmi?
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.LabelWidths">
+            <summary>
+                Label genişliği
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OrganizasyonOzelYetki">
+            <summary>
+                Spesifik yetkinin adı.
+                Organizasyon yetkisi varsayılan olaran 'uygulama' yetkisine bakar.
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OrganizasyonYetkiOlsunMu">
+            <summary>
+                OrganizasyonYetkisi olsun mu? Default:false
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.FieldOrder">
+            <summary>
+                OgretimUyesiid EmekliSicilNo AkademikUnvan Ad Soyad Organizasyonid Durum Aktif Aciklama IsNew  gibi sorgula
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.IsLoaded">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.MaxLength">
+            <summary>
+                Max giriş alanının ayarlanması
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.ToolTip">
+            <summary>
+                Gösterilecek bilgi ne olacak
+            </summary>
+        </member>
+        <member name="P:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.ShowTcKimlikNo">
+            <summary>
+                Tc Kimlik No bilgisinin ilgili textboxta gösterimeyle ilgili özelliktir.
+                True olursa gösterilir,false olursa gösterilmez.
+                Varsayılan değer : True
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OgretimOyesiSelectedEventHandler">
+            <summary>
+                Olay Yakalayıcı
+            </summary>
+        </member>
+        <member name="E:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OgretimOyesiSearchedEventHandler">
+            <summary>
+                Öğretim Üyesi Aratıldığında tetiklenecek metod
+            </summary>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OgretimOyesiSelectedEvent">
+            <summary>
+                Olay tetikleyici Delegate
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:UniOgrenci.Master.Web.UI.UserControls.SearchOgretimUyesi.OgretimOyesiSearchedEvent">
+            <summary>
+                Öğretim Üyesi Aratıldı ise
+            </summary>
+            <param name="o">Bulunan Öğretim Üyesi (Bulunamazsa null)</param>
+        </member>
+    </members>
+</doc>

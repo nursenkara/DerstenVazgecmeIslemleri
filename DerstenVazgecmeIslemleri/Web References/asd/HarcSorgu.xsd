@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://harcsorgu.external.unipa.com.tr/" targetNamespace="http://harcsorgu.external.unipa.com.tr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="HarcOnay" type="tns:HarcOnay" />
+  <xs:element name="HarcOnayResponse" type="tns:HarcOnayResponse" />
+  <xs:complexType name="HarcOnay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="auth" type="tns:authentication" />
+      <xs:element minOccurs="0" name="ogrenciNo" type="xs:string" />
+      <xs:element name="yil" type="xs:int" />
+      <xs:element name="donem" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Kullanici" type="xs:string" />
+      <xs:element minOccurs="0" name="Sifre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HarcOnayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:harcOnayResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="harcOnayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OgrenciNo" type="xs:string" />
+      <xs:element minOccurs="0" name="Aciklama" type="xs:string" />
+      <xs:element name="Onay" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReturnCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

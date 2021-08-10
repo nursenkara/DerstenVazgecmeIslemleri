@@ -1,0 +1,1167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Unipa.Framework.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Unipa.Framework.Data.QueryLog.Entities.Query">
+            <summary>
+            Query object for NHibernate mapped table 'Query'.
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.BaseDbEntity">
+            <summary>
+            Veritabanındaki tablolara karşılık gelen NHibernate nesnelerinin türeyeceği base sınıf.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.BaseDbEntity.m_isNew">
+            <summary>
+            Databaseden çekilen entity için false değer alır. Yeni oluşturulan için true.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.BaseDbEntity.Save(NHibernate.ISession,System.String,Unipa.Framework.Data.NHibernate.NHibernateDbProvider)">
+            <summary>
+            Bir NHibernate nesnesi, kendisini veri tabanına bu fonksiyon üzerinden kaydeder
+            </summary>
+            <param name="session">Kaydetme işlemi için kullanılacak bağlantı</param>
+            <param name="forceNewSession">True ise fonksiyona verilen session kullanılır, aksi
+             taktirde Entity'nin oluşturulduğu session kullanılır</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Unipa.Framework.Data.BaseDbEntity.Update(NHibernate.ISession,System.String,Unipa.Framework.Data.NHibernate.NHibernateDbProvider)" -->
+        <!-- Badly formed XML comment ignored for member "M:Unipa.Framework.Data.BaseDbEntity.Delete(NHibernate.ISession,System.String,Unipa.Framework.Data.NHibernate.NHibernateDbProvider)" -->
+        <member name="P:Unipa.Framework.Data.BaseDbEntity.HasHistoryTable">
+            <summary>
+            History Tablosu Varmı
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.Query.SetException(System.Exception)">
+            <summary>
+            Exception->Binary
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.Query.GetException">
+            <summary>
+            Binary->Exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.Query.Equals(System.Object)">
+            <summary>
+            local implementation of Equals based on unique value members
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.Query.GetHashCode">
+            <summary>
+            local implementation of GetHashCode based on unique value members
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.QueryLog.Entities.Query.DbName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.QueryLog.Entities.Query.QueryOwner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Caching.DistCache">
+            <summary>
+            Application içindeki her yerden ulaşılabilecek cache'e nesne ekleme işlemleri yapar.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Get(System.String)">
+            <summary>
+            Cache içinden istenen objeyi getirir.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Get``1(System.String)">
+            <summary>
+            Cache içinden istenen objeyi getirir.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Get``1(System.String,Unipa.Framework.Data.Caching.CachedObjectLoader{``0},System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="loader"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Get``1(System.String,Unipa.Framework.Data.Caching.CachedObjectLoader{``0},System.TimeSpan,System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="loader"></param>
+            <param name="timeSpan"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Set(System.String,System.Object)">
+            <summary>
+            Verilen key kullanılarak ile nesneyi cache'e atar. 1MBytedan büyük objeler atılamaz.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns>Başarılı ise true döner. 1MBytedan büyük objeler atılamaz.</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Set(System.String,System.Object,System.TimeSpan)">
+            <summary>
+            Verilen key kullanılarak ile nesneyi cache'e atar. 1MBytedan büyük objeler atılamaz
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="timeSpan">Nesnenin cache içinde kalma süresi.</param>
+            <returns>Başarılı ise true döner. 1MBytedan büyük objeler atılamaz.</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Caching.DistCache.Remove(System.String)">
+            <summary>
+            Verilen key'e sahip objeyi cacheden siler.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectSingleHQL(System.String,System.Object[])">
+            <summary>
+            HQL cümlesi çalışır ve sonuc olarak bir nesne döner. Bu dönen nesne bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            Bakınız "http://www.hibernate.org/hib_docs/nhibernate/1.2/reference/en/html/queryhql.html"
+            </summary>
+            <param name="selectCommand">Select cümlesi</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectHQL(System.String,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür. Dönen IList, sorgu sonucu 
+            dönen her satırın oluşturduğu bir collection yapısıdır. Her bir satır bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            </summary>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectHQL(System.String,System.Boolean,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür. Dönen IList, sorgu sonucu 
+            dönen her satırın oluşturduğu bir collection yapısıdır. Her bir satır bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            </summary>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectSingleHQL``1(System.String,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sorgu sonucu dönen listenin ilk elemanını verir.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="selectCommand"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectHQL``1(System.String,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür.
+            Örnek query: "from Ogrenci as o Where o.Organizasyon.UstBirim=?"
+            </summary>
+            <typeparam name="T">Entity</typeparam>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.QueryLog.LoggableSession.SelectHQL``1(System.String,System.Boolean,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür.
+            Örnek query: "from Ogrenci as o Where o.Organizasyon.UstBirim=?"
+            </summary>
+            <typeparam name="T">Entity</typeparam>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="T:Unipa.Framework.Data.HybridDatabase">
+            <summary>
+            UnipaFramework üzerine yazılan tüm uygulamaların veritabanı katmanını temsil eden nesne.
+            NHibernate nesneleri kullanılarak veritabanı iletişimi sağlanabileceği gibi klasik anlamda SQL sorgularınında
+            kullanılmasını sağlar
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.#ctor">
+            <summary>
+            Yeni bir HybridDatabase nesnesi yaratır
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialize işleminde .NET framework tarafından çağırılan constructor. Bağlantılar tekrar oluşturuluyor.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,System.Reflection.Assembly,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.Boolean,System.Boolean)">
+            <summary>
+            Database configurasyonunu harici bir dosya veya bir kaynaktan almak istedigimizde IConfigurationSource 
+            vererek bunu sağlayabiliyoruz. UnipaMaster dışındaki tüm projeler veri tabanı konfigurasyonunu 
+            UnipaMaster veritabanından <see cref="!:Unipa.Framework.UnipaMaster.Config.DbConfigurationSource"/> nesnesi
+            ile almaktadırlar.
+            </summary>
+            <param name="alias">Configurasyon içinde istenilen database in alias adı.</param>
+            <param name="assembly"></param>
+            <param name="source"></param>
+            <param name="enableQueryLogging">true ise Oluşturulan database query logging yapar.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase">
+            <summary>
+            Configuration dosyasında <b>defaultDatabase</b> olarak belirlenen connection string adı kullanılarak
+            bir <see cref="T:Unipa.Framework.Data.HybridDatabase"/> nesnesi oluşturur. Daha onceden onceden oluşturulduysa
+            aynısı geri öndürülür. Bu fonksiyonu çağıran assembly içindeki NHibernate mappingleri kullanılır.
+            </summary>
+            <returns><see cref="T:Unipa.Framework.Data.HybridDatabase"/></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.Reflection.Assembly)">
+            <summary>
+            Configuration dosyasında <b>defaultDatabase</b> olarak belirlenen connection string adı kullanılarak
+            bir <see cref="T:Unipa.Framework.Data.HybridDatabase"/> nesnesi oluşturur. Daha onceden onceden oluşturulduysa
+            aynısı geri öndürülür. Verilen assembly içerisindeki NHibernate mappingleri kullanılır.
+            </summary>
+            <param name="assembly">NHibernate konfigure edilirken, mapping (<b>*.hbm.xml</b>) dosyalarının
+            bulunacağı assembly</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String)">
+            <summary>
+            Configuration dosyasında <b>defaultDatabase</b> olarak belirlenen connection string adı kullanılarak
+            bir <see cref="T:Unipa.Framework.Data.HybridDatabase"/> nesnesi oluşturur. Bu fonksiyonu çağıran assembly 
+            içindeki NHibernate mappingleri kullanılır.
+            </summary>
+            <param name="alias">Web.config, yada App.config içerisindeki connection stringin adı</param>
+            <returns><see cref="T:Unipa.Framework.Data.HybridDatabase"/></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,System.Reflection.Assembly)">
+            <summary>
+            Configuration dosyasında <b>defaultDatabase</b> olarak belirlenen connection string adı kullanılarak
+            bir <see cref="T:Unipa.Framework.Data.HybridDatabase"/> nesnesi oluşturur. Daha onceden onceden oluşturulduysa
+            aynısı geri öndürülür. Verilen assembly içerisindeki NHibernate mappingleri kullanılır.
+            </summary>
+            <param name="assembly">NHibernate konfigure edilirken, mapping (<b>*.hbm.xml</b>) dosyalarının 
+            bulunacağı assembly</param>
+            <param name="alias">Web.config, yada App.config içerisindeki connection stringin adı</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            Configuration dosyasında <b>defaultDatabase</b> olarak belirlenen connection string adı kullanılarak
+            bir <see cref="T:Unipa.Framework.Data.HybridDatabase"/> nesnesi oluşturur. Daha onceden onceden oluşturulduysa
+            aynısı geri öndürülür. Verilen assembly içerisindeki NHibernate mappingleri kullanılır.
+            </summary>
+            <param name="assembly">NHibernate konfigure edilirken, mapping (<b>*.hbm.xml</b>) dosyalarının 
+            bulunacağı assembly</param>
+            <param name="alias">Web.config, yada App.config içerisindeki connection stringin adı</param>
+            <param name="enableQueryLogging">Oluşturulan database query logging yapar.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            Database configurasyonunu harici bir dosya veya bir kaynaktan almak istedigimizde IConfigurationSource 
+            vererek bunu sağlayabiliyoruz. UnipaMaster dışındaki tüm projeler veri tabanı konfigurasyonunu 
+            UnipaMaster veritabanından <see cref="!:Unipa.Framework.UnipaMaster.Config.DbConfigurationSource"/> nesnesi
+            ile almaktadırlar.
+            </summary>
+            <param name="alias"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,System.Reflection.Assembly,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            Database configurasyonunu harici bir dosya veya bir kaynaktan almak istedigimizde IConfigurationSource 
+            vererek bunu sağlayabiliyoruz. UnipaMaster dışındaki tüm projeler veri tabanı konfigurasyonunu 
+            UnipaMaster veritabanından <see cref="!:Unipa.Framework.UnipaMaster.Config.DbConfigurationSource"/> nesnesi
+            ile almaktadırlar.
+            </summary>
+            <param name="alias">Configurasyon içinde istenilen database in alias adı.</param>
+            <param name="assembly"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateHybridDatabase(System.String,System.Reflection.Assembly,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.Boolean)">
+            <summary>
+            Database configurasyonunu harici bir dosya veya bir kaynaktan almak istedigimizde IConfigurationSource 
+            vererek bunu sağlayabiliyoruz. UnipaMaster dışındaki tüm projeler veri tabanı konfigurasyonunu 
+            UnipaMaster veritabanından <see cref="!:Unipa.Framework.UnipaMaster.Config.DbConfigurationSource"/> nesnesi
+            ile almaktadırlar.
+            </summary>
+            <param name="alias">Configurasyon içinde istenilen database in alias adı.</param>
+            <param name="assembly"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.GetSqlStringCommand(System.String)">
+            <summary>
+            Verilen bir query cümlesi için bir DbCommand nesnesi yaratılır.
+            </summary>
+            <param name="query">Sql query cümlesi</param>
+            <returns><see cref="T:System.Data.Common.DbCommand"/></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ReplaceParameterSymbol(System.String)">
+            <summary>
+            Sql sorgusu içinde gecen parametreler icin kullanilan sembol @ yada : olabilir. Database oracle ise ':', MSSQL ise '@' gecmelidir. Bu
+            degisikligi yapar.
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.GetSqlStringCommand(System.String,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            Verilen bir query cümlesi için bir DbCommand nesnesi yaratılır, ve verilen <see cref="T:Unipa.Framework.Data.UnipaTransaction"></see> 
+            nesnesini bu DbCommand ile ilişkilendirir.
+            </summary>
+            <param name="query">Sql query cümlesi</param>
+            <param name="trans">Transaction</param>
+            <returns><see cref="T:System.Data.Common.DbCommand"/></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.AddInParameter(System.Data.Common.DbCommand,System.String,System.Data.DbType,System.Object)">
+            <summary>
+            Bir DbCommand nesnesi içindeki "@" sembolü ile verilmiş parametrenin değerini set eder, ve 
+            bu DbCommand nesnesi içine bu parametreyi değeriyle birlikte ekler.
+            </summary>
+            <param name="cmd">Parametrenin ekleneceği DbCommand nesnesi</param>
+            <param name="name">Parametre adı</param>
+            <param name="type">Parametrenin veri tipi</param>
+            <param name="value">Parametrenin değeri</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            Bir komutu çalıştırır ve etkilenen satır sayısını döndürür.
+            </summary>
+            <example>
+            //Aşağıdaki kod parçası örnek bir Sql cümlesinin <see cref="T:Unipa.Framework.Data.HybridDatabase"/>
+            //üzerinde nasıl çalıştırılacağını gösterir
+            string sqlQuery = "SELECT count(*) FROM Ogrenci WHERE OgrenciID=@ogrenci_id";
+            DbCommand cmd = db.GetSqlStringCommand(sqlQuery);
+            cmd.AddInParameter(cmd, "ogrenci_id", DbType.String, "123456789");
+            int sonuc = db.ExecuteNonQuery(cmd);
+            </example>
+            <param name="command">Çalıştırılacak olan komut</param>
+            <returns>Sorgu sonucunda etkilenen satır sayısı</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteNonQuery(System.Data.Common.DbCommand,System.Boolean)">
+            <summary>
+            Bir komutu çalıştırır ve etkilenen satır sayısını döndürür.
+            </summary>
+            <example>
+            //Aşağıdaki kod parçası örnek bir Sql cümlesinin <see cref="T:Unipa.Framework.Data.HybridDatabase"/>
+            //üzerinde nasıl çalıştırılacağını gösterir
+            string sqlQuery = "SELECT count(*) FROM Ogrenci WHERE OgrenciID=@ogrenci_id";
+            DbCommand cmd = db.GetSqlStringCommand(sqlQuery);
+            cmd.AddInParameter(cmd, "ogrenci_id", DbType.String, "123456789");
+            int sonuc = db.ExecuteNonQuery(cmd);
+            </example>
+            <param name="command">Çalıştırılacak olan komut</param>
+            <param name="closeConnection">Sorgu tamamlandıktan sonra connection kapatılsınmı?. Bağlantı bir transaction
+            içeriyorsa kapatılmaz.</param>
+            <returns>Sorgu sonucunda etkilenen satır sayısı</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteScalar(System.Data.CommandType,System.String)">
+            <summary>
+            Verilen bir sorguyu çalıştırır ve sonuc setinin ilk satırının ilk sütununu döndürür.
+            </summary>
+            <param name="commandType">Komut tipi: Text, Stored  procedure gibi değerler alabilir</param>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteScalar(System.Data.Common.DbCommand)">
+            <summary>
+            Verilen bir sorguyu çalıştırır ve sonuc setinin ilk satırının ilk sütununu döndürür. Sorgu çalıştırıldıktan sonra
+            Connection kapatılır.
+            </summary>
+            <param name="cmd">Sql komutu, transaction barındırabilir</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDatatable(System.Data.Common.DbCommand)">
+            <summary>
+            Verilen sorgu cümlesi çalıştırılır ve sonuc bir DataTable olarak döndürülür
+            </summary>
+            <param name="selectCommand">Çalıştırılacak olan select cümlesi</param>
+            <returns>Sonuç ile doldurulmuş DataTable</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDatatable(System.Data.Common.DbCommand,System.Boolean)">
+            <summary>
+            Verilen sorgu cümlesi çalıştırılır ve sonuc bir DataTable olarak döndürülür
+            </summary>
+            <param name="selectCommand">Çalıştırılacak olan select cümlesi</param>
+            <returns>Sonuç ile doldurulmuş DataTable</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDatatable(System.Data.Common.DbCommand,System.String)">
+            <summary>
+            Verilen sorgu cümlesi çalıştırılır ve sonuc bir DataTable olarak döndürülür.
+            </summary>
+            <param name="selectCommand">Çalıştırılacak olan select cümlesi</param>
+            <param name="dataTableName">Tablo adı</param>
+            <returns>Sonuç ile doldurulmuş DataTable</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDatatable(System.Data.Common.DbCommand,System.String,System.Boolean)">
+            <summary>
+            Verilen sorgu cümlesi çalıştırılır ve sonuc bir DataTable olarak döndürülür.
+            </summary>
+            <param name="selectCommand">Çalıştırılacak olan select cümlesi</param>
+            <param name="dataTableName">Tablo adı</param>
+            <param name="closeConnection">True ise sorgudan sonra bağlantı koparılır.</param>
+            <returns>Sonuç ile doldurulmuş DataTable</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDataSet(System.Data.Common.DbCommand)">
+            <summary>
+            Birden fazla datatable döndüren komutlar için kullanılır. Sonuc olarak dönen Datatable nesneleri, bir <see cref="T:System.Data.DataSet"/>
+            içine eklenir.
+            </summary>
+            <param name="command">Sorgu komutu</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.ExecuteDataset(System.Data.CommandType,System.String)">
+            <summary>
+            Birden fazla datatable döndüren komutlar için kullanılır. Sonuc olarak dönen Datatable nesneleri, bir <see cref="T:System.Data.DataSet"/>
+            içine eklenir.
+            </summary>
+            <param name="type"><see cref="T:System.Data.CommandType"/>değerlerinden biri.</param>
+            <param name="commandText">Sql sorgu cümlesi</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.UpdateDatatable(System.Data.DataTable,System.Data.Common.DbConnection)">
+            <summary>
+            Daha önceden <see cref="T:Unipa.Framework.Data.HybridDatabase"/> sınıfının ExecuteDatatable fonksiyonu
+            aracılığı ile oluşturulmuş bir DataTable nesnesi içerisinde yapılmış değişiklikleri veritabanına yansıtır.
+            </summary>
+            <remarks>
+            Bu fonksiyon sadece HybridDatabase nesnesinin ExecuteDatatable fonksiyonları kullanılarak oluşturulan 
+            DataTable nesnelerini update edebilir. Aksi taktirde <see cref="T:System.InvalidOperationException"/> atılır
+            </remarks>
+            <param name="dataTable">İçinde yapılmış değişiklilerin güncelleneceği DataTable</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.UpdateDatatable(System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="dataTable"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.UpdateDatatable(System.Data.DataTable,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            
+            </summary>
+            <param name="dataTable"></param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.UpdateDatatable(System.Data.DataTable,System.Data.Common.DbCommand,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            Verilen selectCommand ile çekilen DataTable, veritabanına geri güncellenir. Transaction verilmelidir.
+            </summary>
+            <param name="dataTable"></param>
+            <param name="selectCommand"></param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.GetCommandBuilder(System.Data.Common.DbDataAdapter)">
+            <summary>
+            Verilen bir <see cref="T:System.Data.Common.DbDataAdapter"/> nesnesi ile ilişkilendirilmiş
+            bir DbCommandBuilder nesnesi döndürür. Bu fonksiyon HybridDatabase nesnesi tarafından UpdateDataTable
+            fonksiyonu içinde kullanıılır
+            </summary>
+            <param name="adapter">DbDataAdapter</param>
+            <returns>DbCommandBuilder</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SaveOrUpdate(Unipa.Framework.Data.BaseDbEntity)">
+            <summary>
+            IsNew property'sine göre save yada upadte eder.
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SaveOrUpdate(Unipa.Framework.Data.BaseDbEntity,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Save(Unipa.Framework.Data.BaseDbEntity)">
+            <summary>
+            Verilen bir entity veritabanina kaydedilir.
+            </summary>
+            <param name="entity">Entity</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Save(Unipa.Framework.Data.BaseDbEntity,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            Verilen bir entity veritabanina kaydedilir. Açık bir session verilmelidir
+            </summary>
+            <param name="entity">Entity</param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Update(Unipa.Framework.Data.BaseDbEntity)">
+            <summary>
+            Veritabanında var olan bir entity güncellenir(Update)
+            </summary>
+            <param name="entity">Entity</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Update(Unipa.Framework.Data.BaseDbEntity,System.Object)">
+            <summary>
+            ID değerin değiştirilecek olan entity updateleri için...
+            </summary>
+            <param name="entity"></param>
+            <param name="id"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Update(Unipa.Framework.Data.BaseDbEntity,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            Veritabanında var olan bir entity güncellenir. Açık bir session verilmelidir.
+            </summary>
+            <param name="entity">Entity</param>
+            <param name="trans">UnipaTransaction</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.DeleteDbEntity(Unipa.Framework.Data.BaseDbEntity)">
+            <summary>
+            Verilen DnEntity veri tabanından silinir
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.DeleteDbEntity(Unipa.Framework.Data.BaseDbEntity,Unipa.Framework.Data.UnipaTransaction)">
+            <summary>
+            Verilen DnEntity veri tabanından silinir
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.BeginTransaction(Unipa.Framework.Data.TransactionType)">
+            <summary>
+            Yeni bir transaction yaratır, tipe göre NHibernate ve Sql transaction yaratılacaktır.
+            </summary>
+            <param name="type">Transaction Type veriniz.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.BeginTransaction(Unipa.Framework.Data.TransactionType,System.Data.IsolationLevel)">
+            <summary>
+            Yeni bir transaction yaratır, tipe göre NHibernate ve Sql transaction yaratılacaktır.
+            </summary>
+            <param name="type">Transaction tipini veriniz</param>
+            <param name="isolationlevel">İzolazyon Seviyesi</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.BeginTransaction">
+            <summary>
+            Yeni bir transaction yaratır, NHibernate ve Sql sorgularında kullanılabilir.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Yeni bir transaction yaratır, NHibernate ve Sql sorgularında kullanılabilir.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.LoadEntityByID``1(System.Object)">
+            <summary>
+            Veritabanından verilen id değerine karşılık gelen nesneyi, Nhibernate kullanarak yükler
+            </summary>
+            <typeparam name="T"><see cref="T:Unipa.Framework.Data.BaseDbEntity"/> tipinden türemiş bir db entitiy
+            </typeparam>
+            <param name="id">Tablodaki primary key değeri. 1 den fazla key olan tablolarda id ayrı bir class olarak
+             tanımlanmıştır. Örnek: KullaniciRol tablosunda <i>KullaniciID</i> ve <i>RolID</i> adında 2 primary key varsa,
+            bu fonksiyona verilecek olan key değeri <b>new KullaniciRolId(kullaniciID, rolID)</b> şeklinde olacaktır.
+            </param>
+            <returns>Veri tabaından okulan nesne</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Initialize(Unipa.Framework.Data.BaseDbEntity,System.Object)">
+            <summary>
+            Bir entity yada alt collection'ın yüklenmesini sağlar.
+            </summary>
+            <param name="entity">Entity</param>
+            <param name="entityOrCollection">Yüklenecek olan collection</param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Select``1(System.String,NHibernate.ISession,System.Boolean,System.Object[])">
+            <summary>
+            Select sql sorgu cümlesini çalıştırır, sorgu sonucu gelen listeyi döndürür
+            </summary>
+            <typeparam name="T">Sorgu sonucu dönebilecek entity tipi</typeparam>
+            <param name="selectCommand">Select sorgu cümlesi</param>
+            <param name="parameters">Sql cümlesi içindeki parametre değerleri. Sırası ile gönderin</param>
+            <remarks>
+            Sql cümlesi içindeki parametreler, isimli parametre olmamalıdır. Örnek olarak Sql Selecet cümlesi, 
+            Select * from Table where Kolon = <b>?</b> şeklinde olmalıdır.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Select``1(System.String,System.Object[])">
+            <summary>
+            Select sql sorgu cümlesini çalıştırır, sorgu sonucu gelen listeyi döndürür
+            </summary>
+            <typeparam name="T">Sorgu sonucu dönebilecek entity tipi</typeparam>
+            <param name="selectCommand">Select sorgu cümlesi</param>
+            <param name="parameters">Sql cümlesi içindeki parametre değerleri. Sırası ile gönderin</param>
+            <remarks>
+            Sql cümlesi içindeki parametreler, isimli parametre olmamalıdır. Örnek olarak Sql Selecet cümlesi, 
+            Select * from Table where Kolon = <b>?</b> şeklinde olmalıdır.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.Select``1(System.String,Unipa.Framework.Data.UnipaTransaction,System.Object[])">
+            <summary>
+            Select sql sorgu cümlesini çalıştırır, sorgu sonucu gelen listeyi döndürür
+            </summary>
+            <typeparam name="T">Sorgu sonucu dönebilecek entity tipi</typeparam>
+            <param name="selectCommand">Select sorgu cümlesi</param>
+            <param name="parameters">Sql cümlesi içindeki parametre değerleri. Sırası ile gönderin</param>
+            <remarks>
+            Sql cümlesi içindeki parametreler, isimli parametre olmamalıdır. Örnek olarak Sql Selecet cümlesi, 
+            Select * from Table where Kolon = <b>?</b> şeklinde olmalıdır.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingle``1(System.String,System.Object[])">
+            <summary>
+            Select sorgusu sonucu dönen listenin ilk elemanını döndürür. Liste boş ise null döner.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="selectCommand"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingle``1(System.String,Unipa.Framework.Data.UnipaTransaction,System.Object[])">
+            <summary>
+            Select sorgusu sonucu dönen listenin ilk elemanını döndürür. Liste boş ise null döner.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="selectCommand"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingleHQL``1(System.String,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sorgu sonucu dönen listenin ilk elemanını verir.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="selectCommand"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingleHQL``1(System.String,Unipa.Framework.Data.UnipaTransaction,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sorgu sonucu dönen listenin ilk elemanını verir.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="selectCommand"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL``1(System.String,NHibernate.ISession,System.Boolean,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür.
+            Örnek query: "from Ogrenci as o Where o.Organizasyon.UstBirim=?"
+            </summary>
+            <typeparam name="T">Entity</typeparam>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL``1(System.String,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür.
+            Örnek query: "from Ogrenci as o Where o.Organizasyon.UstBirim=?"
+            </summary>
+            <typeparam name="T">Entity</typeparam>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL``1(System.String,Unipa.Framework.Data.UnipaTransaction,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür.
+            Örnek query: "from Ogrenci as o Where o.Organizasyon.UstBirim=?"
+            </summary>
+            <typeparam name="T">Entity</typeparam>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL(System.String,NHibernate.ISession,System.Boolean,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür. Dönen IList, sorgu sonucu 
+            dönen her satırın oluşturduğu bir collection yapısıdır. Her bir satır bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            </summary>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL(System.String,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür. Dönen IList, sorgu sonucu 
+            dönen her satırın oluşturduğu bir collection yapısıdır. Her bir satır bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            </summary>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectHQL(System.String,Unipa.Framework.Data.UnipaTransaction,System.Int32,System.Object[])">
+            <summary>
+            Hibernate query language ile verilen sorguyu çalıştırır. Sonucu IList olarak döndürür. Dönen IList, sorgu sonucu 
+            dönen her satırın oluşturduğu bir collection yapısıdır. Her bir satır bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            </summary>
+            <param name="selectCommand">Select komutu</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingleHQL(System.String,System.Object[])">
+            <summary>
+            HQL cümlesi çalışır ve sonuc olarak bir nesne döner. Bu dönen nesne bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            Bakınız "http://www.hibernate.org/hib_docs/nhibernate/1.2/reference/en/html/queryhql.html"
+            </summary>
+            <param name="selectCommand">Select cümlesi</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.SelectSingleHQL(System.String,Unipa.Framework.Data.UnipaTransaction,System.Object[])">
+            <summary>
+            HQL cümlesi çalışır ve sonuc olarak bir nesne döner. Bu dönen nesne bir entity, bir kolon, 
+            yada kolon ve entitylerin oluşturduğu daha karmaşık bir yapı olabilir.
+            Bakınız "http://www.hibernate.org/hib_docs/nhibernate/1.2/reference/en/html/queryhql.html"
+            </summary>
+            <param name="selectCommand">Select cümlesi</param>
+            <param name="parameters">Sorgu parametreleri</param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.OpenConnection">
+            <summary>
+            Database connection açar.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CloseConnection(System.Data.IDbConnection)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.OpenSession">
+            <summary>
+            Yeni bir NHibernate session yaratır
+            </summary>
+            <returns>ISession</returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.CreateSession">
+            <summary>
+            Her şekilde yeni bir ISession nesnesi yaratır. OpenSession fonksiyonu gibi, öncelikle HttpContext içinde olan session'ı döndürmez.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.HandleException(System.Exception,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ex"></param>
+            <param name="commandText"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.HybridDatabase.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.SyncObject">
+            <summary>
+            Thread synchronization icin kullanılabilecek nesne.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.Alias">
+            <summary>
+            Bu Hybrid database nesnesinin bağlandığı database alias adı.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.Assembly">
+            <summary>
+            NHibernate entity sınıflarının alındığı assembly
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.ConfigurationSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.ReuseISession">
+            <summary>
+            Bu değişken true ise, OpenSession fonksiyonları açık olan ISession nesnesi var ise döndürür. Aksi taktirde yeni açar.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.HybridDatabase.AuthenticatedUser_ID">
+            <summary>
+            Loglama yapabilmek için UnipaMaster içerisindeki AuthenticatedUser property si set edildiğinde authenticated olan kullanicinin ID sini tutmak için kullanılıyor.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.ExceptionSource">
+            <summary>
+            Gerçekleşen veritabanı hatasının NHibernate yada Classic SQL sorgularının hangisinden 
+            geldiğini döndürür.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.Query">
+            <summary>
+            Exception'a neden olan query
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.UygulamaID">
+            <summary>
+            Exception atan uygulama ID
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.EkBilgi">
+            <summary>
+            Bu exception için ek bilgi.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.SqlErrorType">
+            <summary>
+            Oluşan exception'ın tipi. PrimaryKey, unique constraint vs gibi sebepler. Bakınız <see cref="T:Unipa.Framework.Data.Exceptions.SqlErrorType"/>
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Exceptions.UnipaDbException.ExceptionMessage">
+            <summary>
+            Gerçek hatanın(InnerException) Message değişkeni.
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Exceptions.SqlErrorType">
+            <summary>
+            Oluşan Database exceptionlarının tiplerini sembolize eder. Primary KEY violation, Foregin Key vs.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.ServerDoesNotExist">
+            <summary>
+            SQL Server does not exist or access denied. 
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.LoginError">
+            <summary>
+            Login başarısız olduğunda atılır. Ör: Login failed for user '%.*ls'.%.*ls
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.InvalidDatabase">
+            <summary>
+            Database bulunamadığında oluşan hata. Ör: Cannot open database "%.*ls" requested by the login. The login failed.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.ForeignKeyViolation">
+            <summary>
+            Yapılan bir sorgunun foreign key çakışması nedeniyle oluşan hata.
+            Ör: The %ls statement conflicted with the %ls constraint "%.*ls". The conflict occurred in database "%.*ls", table "%.*ls"%ls%.*ls%ls.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.DeadlockVictim">
+            <summary>
+            Bir transaction'ın deadlock nedeniyle tamamlanaması. Transactin tekrar çalıştırılmalı.
+            Hata mesajı: Transaction (Process ID %d) was deadlocked on %.*ls resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.UniqueIndexConstraintViolation">
+            <summary>
+            Aynı primary key'e sahip bir kayıt atılmaya çalışıldığında, yada bir unique constraint bozulduğunda gelen hata.
+            Hata mesajı: Cannot insert duplicate key row in object '%.*ls' with unique index '%.*ls'.
+            </summary>
+        </member>
+        <member name="F:Unipa.Framework.Data.Exceptions.SqlErrorType.General">
+            <summary>
+            Genel hata, diğer tiplerden farklı bir hata numarasına sahip.
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Resources.Lang.DataResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.Config_NHbiernateNoDialect">
+            <summary>
+              Looks up a localized string similar to {0} adlı bağlantı için provider name bulunamadı.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.Config_NHbiernateUnknownDialect">
+            <summary>
+              Looks up a localized string similar to Verilen Provider name desteklenmiyor.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.Config_NoConnectionStringForAlias">
+            <summary>
+              Looks up a localized string similar to {0} adlı conneciton string bulunamadı.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.Config_NoDefaultConnString">
+            <summary>
+              Looks up a localized string similar to Default olarak bir connection string verilmemiş.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.DBError">
+            <summary>
+              Looks up a localized string similar to Veritabanı Hatası.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.General_MustBeSubclassOf">
+            <summary>
+              Looks up a localized string similar to {0} tipindeki class {1} tipindeki classdan türemeli.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Resources.Lang.DataResources.HybridDb_NoSelectForUpdate">
+            <summary>
+              Looks up a localized string similar to Update edilmek istenen Datatable nesnesi HybridDatabase ile oluşturulmalı.
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Caching.MemcachedDependency">
+            <summary>
+            Bellekde cachelenen nesneleri ne kadar sürede bir refresh olacağı bilgisini belirtmek için kullanılır.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Caching.MemcachedDependency.DependencyKey">
+            <summary>
+            Memcached üzerinde tutulan bu key değeri ile farklı makinalardaki aynı cache nesneleri senkronize olurlar.
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.Caching.MemcachedDependency.RefreshInterval">
+            <summary>
+            Farklı makinalarda cachelen nesneler ne kadar sürede bir refresh olurlar
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.NHibernate.NHibernateConfig">
+            <summary>
+            NHibernate konfigurasyonundan sorumlu class. NHibernate mapping(*.hbm.xml) dosyalarının olduğu assembly
+            NHibernateConfig kullanılarak konfigure edilir
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.NHibernateConfig.#cctor">
+            <summary>
+            NhibernateConfig nesnesinin static constructor i. (Type Initializer)
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.NHibernateConfig.CheckCache(System.String,System.String,System.Boolean@)">
+            <summary>
+            Bir connection string için daha once bir konfigurasyon yapılmış ise, bu değer daha sonrakullanilabilmek 
+            üzere saklanır. BU fonksiyon, verilen alias, assemblyName değerleri için daha onceden konfigurasyon
+            yapılmış olup oladığını kontrol eder
+            </summary>
+            <param name="key"></param>
+            <param name="assemblyName"></param>
+            <param name="foundInCache">Daha onceden konfigurasyon yapılmış ise bu değer true olur</param>
+            <returns>Cache içinde bulunmuş ise geri döndürür, yok ise null döner.
+            </returns>
+        </member>
+        <member name="P:Unipa.Framework.Data.NHibernate.NHibernateConfig.ConfigCache">
+            <summary>
+            Olusturulan tüm konfigurasyon nesnelerinin saklandigi cache
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.QueryLog.Entities.QueryParameter">
+            <summary>
+            QueryParameter object for NHibernate mapped table 'QueryParameter'.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.QueryParameter.SetValue(System.Object)">
+            <summary>
+            obj->Binary
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.QueryParameter.GetValue">
+            <summary>
+            Binary->obj
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.QueryParameter.Equals(System.Object)">
+            <summary>
+            local implementation of Equals based on unique value members
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.QueryLog.Entities.QueryParameter.GetHashCode">
+            <summary>
+            local implementation of GetHashCode based on unique value members
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Caching.DefaultCacheKeyTransform">
+            <summary>
+            Cache içine atılan nesnelerin key değerlerini değiştirmeden döndüren transform.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.UnipaTransaction.Commit">
+            <summary>
+            Başlatılmış olan transactionı commit eder
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.UnipaTransaction.Rollback">
+            <summary>
+            Başlatılmış olan trasaction rollback olur.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.UnipaTransaction.EnlistTransaction(System.Data.IDbCommand)">
+            <summary>
+            IDBCommand nesnesini bir transactiona kaydeder.
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="M:Unipa.Framework.Data.UnipaTransaction.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.UnipaTransaction.HBNConnection">
+            <summary>
+            Bu transaction bünyesinde kullanılan DbConnection nesnesi. Sadece Nhibernate Transaction için
+            </summary>
+        </member>
+        <member name="P:Unipa.Framework.Data.UnipaTransaction.SqlConnectionAdo">
+            <summary>
+            Transaction için kullanılacak olan Sql Connecition
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.Caching.MemcachedCacheProvider">
+            <summary>
+            NHibernate second level cache için gerekli, arka planda Memcached kullanan provider
+            </summary>
+        </member>
+        <member name="T:Unipa.Framework.Data.NHibernate.NHibernateDbProvider">
+            <summary>
+            NHibernate üzerinden connection(ISession) açan nesne. 
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.NHibernateDbProvider.OpenNewSession">
+             <summary>
+             NHibernate üzerinden yeni bir connection aç. ADO.NET SqlConnection gibi düşünülebilir.
+             </summary>
+             <returns>Açılan connection üzerinden sorguların yapılabileceği nesne.
+            </returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.NHibernateDbProvider.GetCurrentSession">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.NHibernate.NHibernateDbProvider.OpenNewSession(System.Data.IDbConnection)">
+            <summary>
+            Uygulama tarafından verilen connection nesnesi kullanılarak bir ISession yaratılır.
+            </summary>
+            <param name="connection">Session oluşturmak için kullanılacak olan connection</param>
+            <returns>ISession</returns>
+        </member>
+        <member name="T:Unipa.Framework.Data.Logging.Logger">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.LogFromNhibernate(NHibernate.ISession,System.Object,System.Int32,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="session"></param>
+            <param name="entity"></param>
+            <param name="yapilanIslem"></param>
+            <param name="authanticatedUserId"></param>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.LogFromAdoNet(System.Data.Common.DbCommand,System.Data.DataTable,System.Data.Common.DbConnection,System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="command"></param>
+            <param name="table"></param>
+            <param name="connection"></param>
+            <param name="authanticatedUserId"></param>
+            <param name="identityValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.TryGetIPAddress(System.Web.HttpContext)">
+            <summary>
+                Eğer bu uygulama bir web uygulaması ise bağlanan clientin IP adresini döndürür.
+            </summary>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.GetClientComputerName(System.String)">
+            <summary>
+            </summary>
+            <param name="IP"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.TryGetBrowser(System.Web.HttpContext)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.GetPropertyColumnNames(NHibernate.ISession,System.Object,System.String)">
+            <summary>
+                Gönderilen entity'i arse eder .  Entity nin karşılığı olan veri tabanındaki tablonun kolonlarını alır. Entity nin
+                property leri içerisinde döner. Eğer property bir entity değilse ve tablo da karşılığı olan bir kolon varsa o
+                property nin tablodaki karşılığı olan kolonun adını ve property nin değerini dictionary e ekler. Eğer property bir
+                entity ise o entity nin identifier kolonunu bulup değerini çeker ve dictionary e tablodaki karşılığı olan kolonun
+                adını ve identifier property nin değerini ekler.
+            </summary>
+            <param name="session"></param>
+            <param name="entity"></param>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.GetPropertyColumnNames(NHibernate.ISession,System.Object,NHibernate.Cfg.Configuration)">
+            <summary>
+                Kullanılmıyor
+            </summary>
+            <param name="session"></param>
+            <param name="entity"></param>
+            <param name="cfg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.GetPropertyAndColumnNames(NHibernate.ISessionFactory,System.Object)">
+            <summary>
+                Kullanılmıyor
+            </summary>
+            <param name="sessionFactory"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.GetPropertiesOfEntity(System.Object,NHibernate.ISession,System.String,NHibernate.Cfg.Configuration)">
+            <summary>
+                Kullanılmıyor
+            </summary>
+            <param name="entity"></param>
+            <param name="session"></param>
+            <param name="tableName"></param>
+            <param name="cfg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Logging.Logger.LoglamaYapilacakMi(NHibernate.ISession)">
+            <summary>
+                gonderilen session içerisindeki baglantı kullanılarak loglama yapılacak mı dıye kontrol eder. Eger loglama
+                yapılmayacaksa false olarak deger doner
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Unipa.Framework.Data.Exceptions.TranslateSqlException.GetErrorType(System.Data.SqlClient.SqlException)">
+            <summary>
+            Sqlexception içinde yer alan error koduna göre ilgili <see cref="T:Unipa.Framework.Data.Exceptions.SqlErrorType"/> değerlerinden birini döndürür.
+            </summary>
+            <param name="exception">Hata kodu incelenecek olan exception</param>
+            <returns>SqlErrorType</returns>
+        </member>
+    </members>
+</doc>
