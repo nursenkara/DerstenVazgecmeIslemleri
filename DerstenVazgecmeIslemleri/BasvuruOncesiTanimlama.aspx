@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasvuruOncesiTanimlama.aspx.cs" Inherits="DerstenVazgecmeIslemleri.BasvuruOncesiTanimlama" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasvuruOncesiTanimlama.aspx.cs"
+    Inherits="DerstenVazgecmeIslemleri.BasvuruOncesiTanimlama" %>
+
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Register Assembly="UniOgrenci.Master.Web.UI" Namespace="UniOgrenci.Master.Web.UI.UserControls"
     TagPrefix="cc3" %>
@@ -7,14 +9,11 @@
 <%@ Register Assembly="Unipa.Framework.Web.UI" Namespace="Unipa.Framework.Web.UI"
     TagPrefix="cc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    
     <link type="text/css" rel="stylesheet" href="Resources/Style/DerstenVazgecmeIslemleri.css" />
 </head>
-
 <body>
 
     <script language="Javascript">
@@ -52,8 +51,13 @@
     </script>
 
     <form id="form1" runat="server">
+    <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
+        Text="" UygulamaIDGoster="True" />
+    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="Ogr0081" CacheResult="True"
+        ResourcePath="Resources.Lang.Ogr0081Resources" meta:resourcekey="JsLocalizer1Resource1" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+    <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
     <table border="1" width="100%">
         <tr>
             <td width="40%">

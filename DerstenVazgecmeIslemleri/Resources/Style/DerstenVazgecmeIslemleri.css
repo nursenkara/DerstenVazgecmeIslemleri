@@ -1,1 +1,9 @@
-﻿
+﻿body
+{
+    font: 14px Arial;
+}
+fieldset
+{
+    width:940px;
+    height:auto;
+}

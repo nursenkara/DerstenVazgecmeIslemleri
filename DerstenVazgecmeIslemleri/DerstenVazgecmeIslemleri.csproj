@@ -109,7 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="excel.jpg" />
     <Content Include="Resources\JScript\DerstenVazgecmeIslemleri.js" />
     <Content Include="Resources\Style\DerstenVazgecmeIslemleri.css" />
     <Content Include="Web.config" />
@@ -122,25 +121,32 @@
     <Compile Include="BasvuruOncesiTanimlama.aspx.designer.cs">
       <DependentUpon>BasvuruOncesiTanimlama.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\BelgeKaydetModel.cs" />
-    <Compile Include="Models\BasvuruKontrolKaydetModel.cs" />
-    <Compile Include="Models\DisiplinKaydetModel.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="DanismanIslemleri.aspx.cs">
+      <DependentUpon>DanismanIslemleri.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="DanismanIslemleri.aspx.designer.cs">
+      <DependentUpon>DanismanIslemleri.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DegerlendirmeKriterleri.cs" />
-    <Compile Include="DerstenVazgecmeIslemleriUygulamaExtend1.cs" />
+    <Compile Include="DTOs\DanismanDTO.cs" />
+    <Compile Include="DTOs\DersDTO.cs" />
+    <Compile Include="DTOs\KullanicilarDTO.cs" />
+    <Compile Include="DTOs\OgrenciDTO.cs" />
+    <Compile Include="DTOs\OgrenciIsleriDTO.cs" />
+    <Compile Include="OgrenciBasvuruEkrani.aspx.cs">
+      <DependentUpon>OgrenciBasvuruEkrani.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OgrenciBasvuruEkrani.aspx.designer.cs">
+      <DependentUpon>OgrenciBasvuruEkrani.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DerstenVazgecmeIslemleriUygulama.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ReportStudentPayItem.cs" />
     <Compile Include="Resources\Lang\DerstenVazgecmeIslemleriResources.en.Designer.cs">
       <DependentUpon>DerstenVazgecmeIslemleriResources.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -151,7 +157,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DerstenVazgecmeIslemleriResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="DerstenVazgecmeIslemleriUygulama.cs" />
     <Compile Include="Web References\asd\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,7 +167,8 @@
     <Content Include="App_LocalResources\Default.aspx.resx" />
     <Content Include="App_LocalResources\Default.aspx.en.resx" />
     <Content Include="BasvuruOncesiTanimlama.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="DanismanIslemleri.aspx" />
+    <Content Include="OgrenciBasvuruEkrani.aspx" />
     <EmbeddedResource Include="Resources\Lang\DerstenVazgecmeIslemleriResources.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DerstenVazgecmeIslemleriResources.en.Designer.cs</LastGenOutput>
