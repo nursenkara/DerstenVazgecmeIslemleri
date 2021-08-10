@@ -115,6 +115,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasvuruOncesiTanimlama.aspx.cs">
+      <DependentUpon>BasvuruOncesiTanimlama.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasvuruOncesiTanimlama.aspx.designer.cs">
+      <DependentUpon>BasvuruOncesiTanimlama.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\BelgeKaydetModel.cs" />
     <Compile Include="Models\BasvuruKontrolKaydetModel.cs" />
     <Compile Include="Models\DisiplinKaydetModel.cs" />
@@ -154,6 +161,7 @@
   <ItemGroup>
     <Content Include="App_LocalResources\Default.aspx.resx" />
     <Content Include="App_LocalResources\Default.aspx.en.resx" />
+    <Content Include="BasvuruOncesiTanimlama.aspx" />
     <Content Include="Default.aspx" />
     <EmbeddedResource Include="Resources\Lang\DerstenVazgecmeIslemleriResources.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
