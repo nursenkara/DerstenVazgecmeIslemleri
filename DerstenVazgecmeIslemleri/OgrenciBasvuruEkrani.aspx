@@ -26,8 +26,8 @@
     <form id="form1" runat="server">
         <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
         Text="" UygulamaIDGoster="True" />
-    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="Ogr0081" CacheResult="True"
-        ResourcePath="Resources.Lang.Ogr0081Resources" meta:resourcekey="JsLocalizer1Resource1" />
+    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
+        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizer1Resource1" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
@@ -43,7 +43,7 @@
         <!---->
         <div>
             <asp:Button ID="btnDanismanaGonder" CommandName="cnDanismanaGonder" runat="server"
-                Text="Danışmana Gönder" Visible="true"></asp:Button>
+                Text="Danışmana Gönder" Visible="true" onclick="btnDanismanaGonder_Click"></asp:Button>
             <asp:Button ID="btnOnay" CommandName="cnOnay" runat="server" Text="Onay" Visible="true">
             </asp:Button>
         </div>
@@ -52,9 +52,9 @@
         <telerik:RadGrid ID="grdOgrenci" runat="server" AllowPaging="True" Width="920" AutoGenerateColumns="False"
             meta:resourcekey="RadGridResource" PageSize="100" GridLines="None" CellSpacing="0"
             ShowGroupPanel="false" ShowStatusBar="false" OnNeedDataSource="grdOgrenci_NeedDataSource"
-            OnItemCommand="grdOgrenci_ItemCommand">
+            OnItemCommand="grdOgrenci_ItemCommand" >
             <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
-                AllowMultiColumnSorting="false" DataKeyNames="DersKodu" ShowFooter="false" Font-Names="Tahoma,Geneva,FreeSans,Helvetica,sans-serif"
+                AllowMultiColumnSorting="false" DataKeyNames="OgrenciDersId" ShowFooter="false" Font-Names="Tahoma,Geneva,FreeSans,Helvetica,sans-serif"
                 Font-Size="8">
                 <CommandItemSettings ExportToPdfText="PDF olarak Yazdır" ExportToExcelText="Excel olarak Yazdır"
                     ShowExportToPdfButton="false" ShowExportToExcelButton="false" ShowAddNewRecordButton="false"

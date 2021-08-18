@@ -26,8 +26,8 @@
     <form id="form1" runat="server">
         <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
         Text="" UygulamaIDGoster="True" />
-    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="Ogr0081" CacheResult="True"
-        ResourcePath="Resources.Lang.Ogr0081Resources" meta:resourcekey="JsLocalizer1Resource1" />
+    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
+        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizer1Resource1" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
@@ -43,7 +43,7 @@
             ShowGroupPanel="false" ShowStatusBar="false" OnNeedDataSource="grdDanisman_NeedDataSource"
             OnItemCommand="grdDanisman_ItemCommand">
             <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
-                AllowMultiColumnSorting="false" DataKeyNames="No" ShowFooter="false" Font-Names="Tahoma,Geneva,FreeSans,Helvetica,sans-serif"
+                AllowMultiColumnSorting="false" DataKeyNames="OgrenciDersId" ShowFooter="false" Font-Names="Tahoma,Geneva,FreeSans,Helvetica,sans-serif"
                 Font-Size="8">
                 <CommandItemSettings ExportToPdfText="PDF olarak Yazdır" ExportToExcelText="Excel olarak Yazdır"
                     ShowExportToPdfButton="false" ShowExportToExcelButton="false" ShowAddNewRecordButton="false"
@@ -59,14 +59,16 @@
                             <asp:CheckBox runat="server" ID="chkOnay" AutoPostBack="true" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <telerik:GridBoundColumn DataField="No" HeaderText="Öğrenci No" UniqueName="No" ItemStyle-Width="200px"
+                    <telerik:GridBoundColumn DataField="OgrenciAd" HeaderText="Öğrenci Ad" UniqueName="OgrenciAd" ItemStyle-Width="200px"
                         HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-                    <telerik:GridBoundColumn DataField="Adi" HeaderText="Öğrenci Adı" UniqueName="Adi"
+                    <telerik:GridBoundColumn DataField="OgrenciSoyad" HeaderText="Öğrenci Soyad" UniqueName="OgrenciSoyad"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-                    <telerik:GridBoundColumn DataField="Soyadi" HeaderText="Öğrenci Soyadı" UniqueName="Soyadi"
+                    <telerik:GridBoundColumn DataField="DersKodu" HeaderText="DersKodu" UniqueName="DersKodu"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-                    <telerik:GridBoundColumn DataField="GonderimTarihi" HeaderText="Gönderim Tarihi" UniqueName="GonderimTarihi"
+                        <telerik:GridBoundColumn DataField="DersAdi" HeaderText="Ders Adı" UniqueName="DersAdi"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
+        
+                   
                     <telerik:GridTemplateColumn>
                         <ItemTemplate>
                             <asp:Button ID="btnOnay" CommandName="cnOnay" runat="server" Text="Onay"></asp:Button>

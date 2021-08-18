@@ -30,10 +30,36 @@ using System.Data.Common;
 using DerstenVazgecmeIslemleri.DTOs;
 
 
+
+
 namespace DerstenVazgecmeIslemleri
 {
     public partial class OgrenciBasvuruEkrani : OgrenciBasePage<DerstenVazgecmeIslemleriUygulama>
     {
+        
+         public List<OgrencininDersVazgecmeDTO> OgrencininKesinKayitOlduguDerslerinListesi
+        {
+            get
+            {
+                return FromPageSession<List<OgrencininDersVazgecmeDTO>>("OgrencininKesinKayitOlduguDerslerinListesi", null);
+            }
+            set
+            {
+                PageSession["OgrencininKesinKayitOlduguDerslerinListesi"] = getderslist();
+            }
+        }
+
+
+         public Decimal Gano
+         {
+             get { return Decimal.Parse(Session["Gano"].ToString()); }
+             set { Session["Gano"] = value; }
+         }
+         public Int32 BasvuruDonem
+         {
+             get { return Int32.Parse(Session["BasvuruDonem"].ToString()); }
+             set { Session["BasvuruDonem"] = value; }
+         }
         protected override int UygulamaID
         {
             get { return 10008101; }
@@ -41,17 +67,51 @@ namespace DerstenVazgecmeIslemleri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void grdOgrenci_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            List<DersDTO> dersList = new List<DersDTO>();
-            dersList.Add(new DersDTO { DersAdi = "Yazılım Mimari ve Tasarımı", DersKodu = 1 });
-            dersList.Add(new DersDTO { DersAdi = "Nümerik Analiz", DersKodu = 2 });
-            dersList.Add(new DersDTO { DersAdi = "Diferansiyel Denklemler", DersKodu = 3 });
-            dersList.Add(new DersDTO { DersAdi = "Matematik 2", DersKodu = 4 });
-            grdOgrenci.DataSource = dersList;
+            //buraya ders listeleme fonksiyonu gelecek 
+           // List<OgrencininDersVazgecmeDTO> dersList = getderslist();// new List<DersDTO>();sessiona eşitlenecek pageload  da session dolacak session list dönecek
+            //dersList.Add(new DersDTO { DersAdi = "Yazılım Mimari ve Tasarımı", DersKodu = 1 });
+            //dersList.Add(new DersDTO { DersAdi = "Nümerik Analiz", DersKodu = 2 });
+            //dersList.Add(new DersDTO { DersAdi = "Diferansiyel Denklemler", DersKodu = 3 });
+            //dersList.Add(new DersDTO { DersAdi = "Matematik 2", DersKodu = 4 });*/
+            //grdOgrenci.DataSource = dersList;
+           //try
+           //{
+           //    if (dersList == null) dersList = new List<OgrencininDersVazgecmeDTO>();
+           //    grdOgrenci.DataSource = dersList;
+           //}
+           //catch(Exception ex)
+           //{
+           //    throw ex;
+           //}
+            //OgrencininKesinKayitOlduguDerslerinListesi=OgrencininKesinKayitOlduguDerslerinListesi.ToList()
+            //OgrencininKesinKayitOlduguDerslerinListesi = OgrenciUygulama.OgrencininAldigiDersleriListele(1826127);
+           try
+           {
+               if (OgrencininKesinKayitOlduguDerslerinListesi == null)
+                   OgrencininKesinKayitOlduguDerslerinListesi = new List<OgrencininDersVazgecmeDTO>();
+               grdOgrenci.DataSource = OgrencininKesinKayitOlduguDerslerinListesi;
+           }
+           catch (Exception ex)
+           {
+               ltlInfo.Text = HataGoster(ex.Message);
+           }
+
+         //  if (Session["AAAdayNo"] == null || Session["AAAdayNo"].ToString() == string.Empty)
+          //     grdYuklenenBelgeler.DataSource = e.RebindReason == GridRebindReason.InitialLoad ? new List<YuklenenBelgeler>() : BasvuruYuklenenBelgeler;
+          // else
+            //   grdYuklenenBelgeler.DataSource = e.RebindReason == GridRebindReason.InitialLoad ? new List<AdayOgrenciYuklenenBelgeler>() : AdayOgrenciYuklenenBelgeler;
+          /// RadScriptManager.RegisterStartupScript(Page, GetType(), "a", "Render1();", true);
+
+        }
+
+        private List<OgrencininDersVazgecmeDTO> getderslist()
+        {
+            return OgrenciUygulama.OgrencininAldigiDersleriListele(1826127);//webconfig ten hangi kullanıcının girdiğini anlaman gerekir
         }
 
 
@@ -60,20 +120,61 @@ namespace DerstenVazgecmeIslemleri
             try
             {
                 GridDataItem gdi = (GridDataItem)e.Item;
-                int DersKodu = int.Parse(gdi.GetDataKeyValue("DersKodu").ToString());
+               
+
                 if (e.CommandName == "cnVazgec")
                 {
+                    int ogrenciDersId = int.Parse(gdi.GetDataKeyValue("OgrenciDersId").ToString());
+                   
+                    //UnipaSecurity.EncryptValue()
 
+                    if (ogrenciDersId != -1)
+                    {
+                        //wndYatayGecisBasvurusu.NavigateUrl = "../Ogr0449/Default.aspx?YatayGecisBasvuruOgrenciID=" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString());
+
+                        //wndYatayGecisBasvurusu.NavigateUrl = "http://localhost:1974/Default.aspx?YatayGecisBasvuruOgrenciID=" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString());
+                        // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", "IntibakDefaultAc('" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString()) + "');", true);
+                    }
+                    else
+                    {
+                        ltlInfo.Text = HataGoster("Vazgeçme işlemi yapılamadı.");
+                    }
                 }
                 else if (e.CommandName == "cnGeriAl")
                 {
-
+                    int ogrenciDersId = int.Parse(gdi.GetDataKeyValue("OgrenciDersId").ToString());
+                    if (ogrenciDersId != -1)
+                    {
+                        
+                    }
+                    else
+                    {
+                        ltlInfo.Text = HataGoster("Geri alma işlemi yapılamadı.");
+                    }
                 }
+               
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        protected void btnDanismanaGonder_Click(object sender, EventArgs e)
+        {
+
+            //if (e.CommandName == "cnDanismanaGonder")
+            //    {
+            //        int ogrenciDersId = int.Parse(gdi.GetDataKeyValue("OgrenciDersId").ToString());
+            //        if (ogrenciDersId != -1)
+            //        {
+
+            //        }
+            //        else
+            //        {
+            //            ltlInfo.Text = HataGoster("Danışmana gönderme işlemi yapılamadı.");
+            //        }
+            //    }
         }
     }
 }

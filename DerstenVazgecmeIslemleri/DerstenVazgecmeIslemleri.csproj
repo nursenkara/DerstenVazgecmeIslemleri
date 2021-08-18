@@ -128,11 +128,10 @@
     <Compile Include="DanismanIslemleri.aspx.designer.cs">
       <DependentUpon>DanismanIslemleri.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DTOs\DanismanDTO.cs" />
-    <Compile Include="DTOs\DersDTO.cs" />
-    <Compile Include="DTOs\KullanicilarDTO.cs" />
-    <Compile Include="DTOs\OgrenciDTO.cs" />
-    <Compile Include="DTOs\OgrenciIsleriDTO.cs" />
+    <Compile Include="DTOs\OgrenciDersGoruntulemeDTO.cs" />
+    <Compile Include="DTOs\OgrenciDersVazgecmeDTO.cs" />
+    <Compile Include="DTOs\OgrencininDersVazgecmeDTO.cs" />
+    <Compile Include="Enums\DersVazgecmeDurumlar.cs" />
     <Compile Include="OgrenciBasvuruEkrani.aspx.cs">
       <DependentUpon>OgrenciBasvuruEkrani.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
