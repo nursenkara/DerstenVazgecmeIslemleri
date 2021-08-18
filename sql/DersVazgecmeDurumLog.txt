@@ -1,0 +1,15 @@
+create table DersVazgecmeDurumLog(
+
+DersVazgecmeDurumLogID int primary key identity (1,1),
+DersVazgecmeDurumID int foreign key references DersVazgecmeDurum(DersVazgecmeDurumID),
+OgrenciBasvurduguTarih datetime,
+OgrenciDersID int foreign key references OgrenciDers(OgrenciDersID),
+Durum int,--DANIŞMANA GÖNDERİLDİ - GÖNDERİLMEDİ / ONAYLADI - ONAYLAMADI
+VazgectigiDersSayisi int,
+OnaylayanKisi varchar(250),
+Onaylandigitarih datetime,
+GuncelleyenKisi varchar(250),
+GuncellenenTarih datetime,
+IlkEkleyen varchar(250),
+IlkEklemeTarihi datetime
+)
