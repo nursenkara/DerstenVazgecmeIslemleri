@@ -5,10 +5,9 @@ using System.Web;
 
 namespace DerstenVazgecmeIslemleri.Enums
 {
-    public enum DersVazgecmeDurumlar
+    public enum VazgecebilmekIcinGanoyaGoreBasvuruDurumu
     {
-        DanismanaGonderildi,
-        DanismanOnayladi
-    
+        Basvurabilir = 1,
+        Basvuramaz = 2
     }
 }

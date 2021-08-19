@@ -79,8 +79,13 @@
                         LabelCssClass="" meta:resourcekey="txt_Gano">
                     </telerik:RadTextBox>
                     <br />
-                     <asp:Label ID="lblAciklama" runat="server" Text="Öğrencinin genel ağırlıklı not ortalamasına göre öğrenci başvuru ekranı açılacak. Belirlenen ganodan küçükse açılmayacak."
-                        meta:resourcekey="lblAciklamaResource1"></asp:Label>
+                     <asp:Label ID="lblBilgi" runat="server" Text="Öğrencinin genel ağırlıklı not ortalamasına göre öğrenci başvuru ekranı açılacak. Belirlenen ganodan küçükse açılmayacak."
+                        meta:resourcekey="lblBilgiResource1"></asp:Label>
+                        <br />
+                     <asp:Label ID="lblGanoSartiAciklamasi" runat="server" Text=""
+                        meta:resourcekey="lblGanoSartiAciklamaResource1"></asp:Label>
+                        <br />
+ 
                 </div>
             </td>
             <td>
@@ -134,7 +139,7 @@
                             <cc3:YilDonemCombo Width="350px" ID="yildonem_basvuru" runat="server" Direction="Horizontal"
                                 LabelDonem="Başvuru Dönemi" LabelYil="Başvuru Yılı" ShowDonem="True" OnDonemSelectedEventHandler="yildonem_basvuru_DonemSelectedEventHandler"
                                 AutoSelectYilDonem="False" Donem="-1" FixPopupIndex="False" meta:resourcekey="yildonem_basvuruResource1"
-                                Yil="-1" />
+                                Yil="-1" Height="71px" />
                         </td>
                     </tr>
                 </table>
@@ -173,7 +178,7 @@
     <div id="box1">
        <div id="box2">
         
-            <asp:Button ID="btnKaydet" CommandName="cnKaydet" CssClass="kaydet" runat="server" Text="KAYDET" Visible="true">
+            <asp:Button ID="btnKaydet" CommandName="cnKaydet" CssClass="kaydet" OnClick = "btnKaydet_Click" runat="server" Text="KAYDET" Visible="true">
             </asp:Button>
        </div>
 </div>

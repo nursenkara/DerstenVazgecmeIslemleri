@@ -59,15 +59,7 @@ namespace DerstenVazgecmeIslemleri
 
         protected void grdDanisman_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            //List<OgrenciDTO> ogrList = new List<OgrenciDTO>();
-            //ogrList.Add(new OgrenciDTO { Id = 1, No = 180601034, Adi = "Nur", Soyadi = "Şenkara", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 2, No = 180601035, Adi = "Kamuran", Soyadi = "Karagöz", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 3, No = 180601036, Adi = "Nilüfer", Soyadi = "Poyraz", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 4, No = 180601037, Adi = "Gökhan", Soyadi = "Şenkara", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 5, No = 180601038, Adi = "Mehmet Ali", Soyadi = "Poyraz", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 6, No = 180601039, Adi = "Sevim", Soyadi = "Şenkara", BasvurduguTarih = DateTime.Today });
-            //ogrList.Add(new OgrenciDTO { Id = 7, No = 180601040, Adi = "Bedrettin", Soyadi = "Şenkara", BasvurduguTarih = DateTime.Today });
-            //grdDanisman.DataSource = ogrList;
+
             try
             {
                 if (DerstenVazgecenOgrencilerinListesi == null)
