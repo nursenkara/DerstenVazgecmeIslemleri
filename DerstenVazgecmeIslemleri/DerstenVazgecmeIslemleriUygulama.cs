@@ -20,6 +20,7 @@ using System.Diagnostics;
 using DerstenVazgecmeIslemleri.Resources.Lang;
 using DerstenVazgecmeIslemleri.DTOs;
 using UniOgrenci.Master.Models;
+using DerstenVazgecmeIslemleri.Enums;
 
 namespace DerstenVazgecmeIslemleri
 {
@@ -97,6 +98,7 @@ namespace DerstenVazgecmeIslemleri
 
         public void DersVazgecmeyiYapanOgrencininIlkKaydi(int ogrenciDersId)
         {
+            
             string sqlDersVazgecmeOgrenciIlkKayit = string.Format(@"INSERT INTO DersVazgecmeDurum(
         OgrenciBasvurduguTarih,
         OgrenciDersID,
@@ -107,10 +109,11 @@ values(
         @ogrenciDersId,
         @durum,
     )");
+            DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanaGonderildi;
             DbCommand cmdInsert = OgrenciMaster.Database.GetSqlStringCommand(sqlDersVazgecmeOgrenciIlkKayit);
             OgrenciMaster.Database.AddInParameter(cmdInsert, "ogrenciDersID", DbType.Int32, ogrenciDersId);
             OgrenciMaster.Database.AddInParameter(cmdInsert, "ogrenciBasvurduguTarih", DbType.DateTime, DateTime.Now);
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "durum", DbType.Int32, 5);
+            OgrenciMaster.Database.AddInParameter(cmdInsert, "durum", DbType.Int32, durum);
 
             OgrenciMaster.Database.ExecuteNonQuery(cmdInsert);
         }

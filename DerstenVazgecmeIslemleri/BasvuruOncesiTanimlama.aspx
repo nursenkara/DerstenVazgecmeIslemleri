@@ -51,76 +51,80 @@
     </script>
 
     <form id="form1" runat="server">
-    <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
+    <cc1:AppHeader ID="AppHeaderBasvuruOncesiTanimlama" runat="server" meta:resourcekey="AppHeaderBasvuruOncesiTanimlama"
         Text="" UygulamaIDGoster="True" />
-    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
-        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizer1Resource1" />
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <cc2:JsLocalizer ID="JsLocalizerBasvuruOncesiTanimlama" runat="server" AssemblyName="DerstenVazgecmeIslemleri"
+        CacheResult="True" ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources"
+        meta:resourcekey="JsLocalizerBasvuruOncesiTanimlamaResource1" />
+    <asp:ScriptManager ID="ScriptManagerBasvuruOncesiTanimlama" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
     <table border="1" width="100%">
         <tr>
             <td width="40%">
                 <div>
-                    <asp:Label ID="LabelGano" runat="server" Text="Gano:" meta:resourcekey="lblGanoResource1"></asp:Label>
+                    <asp:Label ID="lblGano" runat="server" Text="Gano:" meta:resourcekey="lblGanoResource1"></asp:Label>
+                   
                     <telerik:RadComboBox ID="cmbBuyukturKucukturEsittir" Width="75px" runat="server">
                         <Items>
                             <telerik:RadComboBoxItem Text="Seçiniz..." Value="0" />
                             <telerik:RadComboBoxItem Text=">" Value="1" />
                             <telerik:RadComboBoxItem Text="<" Value="2" />
-                            <telerik:RadComboBoxItem Text="=" Value="3" />
-                            <telerik:RadComboBoxItem Text="&gt;=" Value="4" />
-                            <telerik:RadComboBoxItem Text="&lt;=" Value="5" />
+                            <telerik:RadComboBoxItem Text="&gt;=" Value="3" />
+                            <telerik:RadComboBoxItem Text="&lt;=" Value="4" />
                         </Items>
                         <CollapseAnimation Duration="200" Type="OutQuint" />
                     </telerik:RadComboBox>
-                    <telerik:RadTextBox ID="RadTextBox1" Width="50px" runat="server" MaxLength="40" onkeypress="return onlyDotsAndNumbers(this,event);"
-                        LabelCssClass="" meta:resourcekey="txt_adResource1">
+                    <telerik:RadTextBox ID="radTxtGano" Width="50px" runat="server" MaxLength="40" onkeypress="return onlyDotsAndNumbers(this,event);"
+                        LabelCssClass="" meta:resourcekey="txt_Gano">
                     </telerik:RadTextBox>
+                    <br />
+                     <asp:Label ID="lblAciklama" runat="server" Text="Öğrencinin genel ağırlıklı not ortalamasına göre öğrenci başvuru ekranı açılacak. Belirlenen ganodan küçükse açılmayacak."
+                        meta:resourcekey="lblAciklamaResource1"></asp:Label>
                 </div>
             </td>
             <td>
                 <table>
                     <tr>
                         <td>
-                            <asp:Label ID="Label16" runat="server" Text="Başvuru Tarihi:"></asp:Label>
+                            <asp:Label ID="lblOgrenciBasvuruBaslangicTarihi" runat="server" Text="Öğrenci Başvuru Başlangıç Tarihi: "></asp:Label>
                         </td>
                         <td>
-                            <telerik:RadDateTimePicker ID="RadDateTimePicker1" runat="server" Width="170px" TimeView-Enabled="true"
-                                TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
+                            <telerik:RadDateTimePicker ID="radDateOgrenciBasvuruBaslangicTarihi" runat="server"
+                                Width="170px" TimeView-Enabled="true" TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
                                 DateInput-DateFormat="d-MM-yyyy | HH:mm" Culture="Turkish (Turkey)">
                             </telerik:RadDateTimePicker>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Label1" runat="server" Text="Başvuru Bitiş Tarihi:"></asp:Label>
+                            <asp:Label ID="lblOgrenciBasvuruBitisTarihi" runat="server" Text="Öğrenci Başvuru Bitiş Tarihi: "></asp:Label>
                         </td>
                         <td>
-                            <telerik:RadDateTimePicker ID="RadDateTimePicker2" runat="server" Width="170px" TimeView-Enabled="true"
-                                TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
+                            <telerik:RadDateTimePicker ID="radDateOgrenciBasvuruBitisTarihi" runat="server" Width="170px"
+                                TimeView-Enabled="true" TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
                                 DateInput-DateFormat="d-MM-yyyy | HH:mm" Culture="Turkish (Turkey)">
                             </telerik:RadDateTimePicker>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Label18" runat="server" Text="Danışman Başlama Tarihi:"></asp:Label>
+                            <asp:Label ID="lblDanismanOnayBaslangicTarihi" runat="server" Text="Danışman Onay Başlangıç Tarihi: "></asp:Label>
                         </td>
                         <td>
-                            <telerik:RadDateTimePicker ID="RadDateTimePicker3" runat="server" Width="170px" TimeView-Enabled="true"
-                                TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
+                            <telerik:RadDateTimePicker ID="radDateDanismanOnayBaslangicTarihi" runat="server"
+                                Width="170px" TimeView-Enabled="true" TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
                                 DateInput-DateFormat="d-MM-yyyy | HH:mm" Culture="Turkish (Turkey)">
                             </telerik:RadDateTimePicker>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Label19" runat="server" Text="Danışman Bitiş Tarihi:"></asp:Label>
+                            <asp:Label ID="lblDanismanOnayBitisTarihi" runat="server" Text="Danışman Onay Bitiş Tarihi:"></asp:Label>
                         </td>
                         <td>
-                            <telerik:RadDateTimePicker ID="RadDateTimePicker4" runat="server" Width="170px" TimeView-Enabled="true"
-                                TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
+                            <telerik:RadDateTimePicker ID="radDateDanismanOnayBitisTarihi" runat="server" Width="170px"
+                                TimeView-Enabled="true" TimePopupButton-Visible="true" DateInput-DisplayDateFormat="dd.MM.yyyy | HH:mm"
                                 DateInput-DateFormat="d-MM-yyyy | HH:mm" Culture="Turkish (Turkey)">
                             </telerik:RadDateTimePicker>
                         </td>
@@ -147,22 +151,36 @@
         <tr>
             <td colspan="2">
                 <div>
-                    <asp:Label ID="Label20" runat="server" Text="Aynı anda kaç dersten vazgeçebilir? :"></asp:Label>
-                    <telerik:RadTextBox ID="RadTextBox2" Width="50px" runat="server" MaxLength="40" onkeypress="return isNumberKey(event)"
-                        LabelCssClass="" meta:resourcekey="txt_adResource1">
+                    <asp:Label ID="lblAyniAndaVazgecebilecegiDersSayisi" runat="server" Text="Aynı anda kaç dersten vazgeçebilir? :"></asp:Label>
+                    <telerik:RadTextBox ID="radAyniAndaVazgecebilecegiDersSayisi" Width="50px" runat="server"
+                        MaxLength="40" onkeypress="return isNumberKey(event)" LabelCssClass="" meta:resourcekey="txt_AyniAndaVazgecebilecegiDersSayisi">
                     </telerik:RadTextBox>
                     <!------label textbox-->
                 </div>
                 <br />
                 <div>
-                    <asp:Label ID="Label21" runat="server" Text="Aynı dersten başka dönemde tekrar vazgeçme başvurusu yapabilir mi? :"></asp:Label>
-                    <asp:CheckBox runat="server" ID="CheckBox1" AutoPostBack="true" />
+                    <asp:Label ID="lblAyniDerstenFarkliDonemdeVazgecmeDurumu" runat="server" Text="Aynı dersten başka dönemde tekrar vazgeçme başvurusu yapabilir mi? :"></asp:Label>
+                    <asp:CheckBox runat="server" ID="chkAyniDerstenFarkliDonemdeVazgecmeDurumu" AutoPostBack="true" />
                     <!------label checkbox-->
                 </div>
                 <br />
             </td>
         </tr>
     </table>
+    <br />
+    <br />
+    
+    <div id="box1">
+       <div id="box2">
+        
+            <asp:Button ID="btnKaydet" CommandName="cnKaydet" CssClass="kaydet" runat="server" Text="KAYDET" Visible="true">
+            </asp:Button>
+       </div>
+</div>
     </form>
+
+    <script>window.addEventListener("load", _ => {document.title = "Başvuru Öncesi Tanımlama"});
+    </script>
+
 </body>
 </html>

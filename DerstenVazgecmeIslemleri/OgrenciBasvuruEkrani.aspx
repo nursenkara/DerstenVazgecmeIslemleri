@@ -24,11 +24,11 @@
     </script>
 
     <form id="form1" runat="server">
-        <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
+        <cc1:AppHeader ID="AppHeaderOgrenciBasvuruEkrani" runat="server" meta:resourcekey="AppHeaderOgrenciBasvuruEkrani"
         Text="" UygulamaIDGoster="True" />
-    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
-        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizer1Resource1" />
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <cc2:JsLocalizer ID="JsLocalizerOgrenciBasvuruEkrani" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
+        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizerOgrenciBasvuruEkrani" />
+    <asp:ScriptManager ID="ScriptManagerOgrenciBasvuruEkrani" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
     <fieldset>
@@ -48,9 +48,13 @@
             </asp:Button>
         </div>
         <br />
+        <div>
+         <asp:Label ID="lblAciklamaOgrenciBasvuruEkrani" runat="server" Text="Vazgeçmek istediğiniz derslere tıklayıp emin olduktan sonra 'Onay' butonuna, son olarak da 'Danışmana Gönder' butonuna basmalısınız.<br/>  Onay butonuna basmadan önce vazgeçme ve/veya geri alma işlemlerinizi yapabilirsiniz."></asp:Label>
+        </div>
+        <br />
 
         <telerik:RadGrid ID="grdOgrenci" runat="server" AllowPaging="True" Width="920" AutoGenerateColumns="False"
-            meta:resourcekey="RadGridResource" PageSize="100" GridLines="None" CellSpacing="0"
+            meta:resourcekey="RadGridOgrenciBasvuruResource" PageSize="100" GridLines="None" CellSpacing="0"
             ShowGroupPanel="false" ShowStatusBar="false" OnNeedDataSource="grdOgrenci_NeedDataSource"
             OnItemCommand="grdOgrenci_ItemCommand" >
             <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
@@ -71,13 +75,14 @@
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
                     <telerik:GridTemplateColumn>
                         <ItemTemplate>
-                            <asp:Button ID="btnVazgec" CommandName="cnVazgec" runat="server" Text="Vazgeç"></asp:Button>
+                            <telerik:RadButton ID="btnVazgec" CommandName="cnVazgec" runat="server" Text="Vazgeç">
+                        </telerik:RadButton>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridTemplateColumn>
                         <ItemTemplate>
-                            <asp:Button ID="btnGeriAl" CommandName="cnGeriAl" runat="server" Text="Geri Al">
-                            </asp:Button>
+                            <telerik:RadButton ID="btnGeriAl" CommandName="cnGeriAl" runat="server" Text="Geri Al">
+                        </telerik:RadButton>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                 </Columns>
@@ -92,5 +97,7 @@
         </telerik:RadGrid>
     </form>
     </fieldset>
+    <script>window.addEventListener("load", _ => {document.title = "Öğrenci Başvuru Ekranı"});
+    </script>
 </body>
 </html>

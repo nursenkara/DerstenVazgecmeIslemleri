@@ -23,31 +23,31 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// AppHeader1 control.
+        /// AppHeaderBasvuruOncesiTanimlama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeader1;
+        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeaderBasvuruOncesiTanimlama;
         
         /// <summary>
-        /// JsLocalizer1 control.
+        /// JsLocalizerBasvuruOncesiTanimlama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizer1;
+        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizerBasvuruOncesiTanimlama;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// ScriptManagerBasvuruOncesiTanimlama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.ScriptManager ScriptManagerBasvuruOncesiTanimlama;
         
         /// <summary>
         /// ltlInfo control.
@@ -59,13 +59,13 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.WebControls.Literal ltlInfo;
         
         /// <summary>
-        /// LabelGano control.
+        /// lblGano control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelGano;
+        protected global::System.Web.UI.WebControls.Label lblGano;
         
         /// <summary>
         /// cmbBuyukturKucukturEsittir control.
@@ -77,85 +77,94 @@ namespace DerstenVazgecmeIslemleri {
         protected global::Telerik.Web.UI.RadComboBox cmbBuyukturKucukturEsittir;
         
         /// <summary>
-        /// RadTextBox1 control.
+        /// radTxtGano control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox RadTextBox1;
+        protected global::Telerik.Web.UI.RadTextBox radTxtGano;
         
         /// <summary>
-        /// Label16 control.
+        /// lblAciklama control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.Label lblAciklama;
         
         /// <summary>
-        /// RadDateTimePicker1 control.
+        /// lblOgrenciBasvuruBaslangicTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDateTimePicker RadDateTimePicker1;
+        protected global::System.Web.UI.WebControls.Label lblOgrenciBasvuruBaslangicTarihi;
         
         /// <summary>
-        /// Label1 control.
+        /// radDateOgrenciBasvuruBaslangicTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::Telerik.Web.UI.RadDateTimePicker radDateOgrenciBasvuruBaslangicTarihi;
         
         /// <summary>
-        /// RadDateTimePicker2 control.
+        /// lblOgrenciBasvuruBitisTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDateTimePicker RadDateTimePicker2;
+        protected global::System.Web.UI.WebControls.Label lblOgrenciBasvuruBitisTarihi;
         
         /// <summary>
-        /// Label18 control.
+        /// radDateOgrenciBasvuruBitisTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label18;
+        protected global::Telerik.Web.UI.RadDateTimePicker radDateOgrenciBasvuruBitisTarihi;
         
         /// <summary>
-        /// RadDateTimePicker3 control.
+        /// lblDanismanOnayBaslangicTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDateTimePicker RadDateTimePicker3;
+        protected global::System.Web.UI.WebControls.Label lblDanismanOnayBaslangicTarihi;
         
         /// <summary>
-        /// Label19 control.
+        /// radDateDanismanOnayBaslangicTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label19;
+        protected global::Telerik.Web.UI.RadDateTimePicker radDateDanismanOnayBaslangicTarihi;
         
         /// <summary>
-        /// RadDateTimePicker4 control.
+        /// lblDanismanOnayBitisTarihi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDateTimePicker RadDateTimePicker4;
+        protected global::System.Web.UI.WebControls.Label lblDanismanOnayBitisTarihi;
+        
+        /// <summary>
+        /// radDateDanismanOnayBitisTarihi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDateTimePicker radDateDanismanOnayBitisTarihi;
         
         /// <summary>
         /// yildonem_basvuru control.
@@ -167,39 +176,48 @@ namespace DerstenVazgecmeIslemleri {
         protected global::UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo yildonem_basvuru;
         
         /// <summary>
-        /// Label20 control.
+        /// lblAyniAndaVazgecebilecegiDersSayisi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label20;
+        protected global::System.Web.UI.WebControls.Label lblAyniAndaVazgecebilecegiDersSayisi;
         
         /// <summary>
-        /// RadTextBox2 control.
+        /// radAyniAndaVazgecebilecegiDersSayisi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox RadTextBox2;
+        protected global::Telerik.Web.UI.RadTextBox radAyniAndaVazgecebilecegiDersSayisi;
         
         /// <summary>
-        /// Label21 control.
+        /// lblAyniDerstenFarkliDonemdeVazgecmeDurumu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label21;
+        protected global::System.Web.UI.WebControls.Label lblAyniDerstenFarkliDonemdeVazgecmeDurumu;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// chkAyniDerstenFarkliDonemdeVazgecmeDurumu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox chkAyniDerstenFarkliDonemdeVazgecmeDurumu;
+        
+        /// <summary>
+        /// btnKaydet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnKaydet;
     }
 }

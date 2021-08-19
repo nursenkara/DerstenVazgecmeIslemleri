@@ -50,16 +50,6 @@ namespace DerstenVazgecmeIslemleri
         }
 
 
-         public Decimal Gano
-         {
-             get { return Decimal.Parse(Session["Gano"].ToString()); }
-             set { Session["Gano"] = value; }
-         }
-         public Int32 BasvuruDonem
-         {
-             get { return Int32.Parse(Session["BasvuruDonem"].ToString()); }
-             set { Session["BasvuruDonem"] = value; }
-         }
         protected override int UygulamaID
         {
             get { return 10008101; }
@@ -67,7 +57,11 @@ namespace DerstenVazgecmeIslemleri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+          // OgrenciBasvuruEkrani.aspx: Sayfa ilk yüklendiğinde tüm geri al butonları disabled olacak.
+        //OgrenciBasvuruEkrani.aspx: Vazgeç butonuna basılmışsa; geri al butonu aktif olacak vazgeç butonu pasif olacak.
+      //OgrenciBasvuruEkrani.aspx: Geri Al butonuna basılmışsa; vazgeç butonu aktif olacak geri al butonu pasif olacak.
+            grdOgrenci.Columns[3].Visible = false;
+            
         }
 
         protected void grdOgrenci_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
@@ -128,12 +122,11 @@ namespace DerstenVazgecmeIslemleri
                    
                     //UnipaSecurity.EncryptValue()
 
+
                     if (ogrenciDersId != -1)
                     {
-                        //wndYatayGecisBasvurusu.NavigateUrl = "../Ogr0449/Default.aspx?YatayGecisBasvuruOgrenciID=" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString());
-
-                        //wndYatayGecisBasvurusu.NavigateUrl = "http://localhost:1974/Default.aspx?YatayGecisBasvuruOgrenciID=" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString());
-                        // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", "IntibakDefaultAc('" + SifrelemeIslemleri.Sifrele(yatayGecisBasvuruOgrenciID.ToString()) + "');", true);
+                        //Öğrenci dersten vazgeçecek.
+                        OgrenciUygulama.DersVazgecmeyiYapanOgrencininIlkKaydi(ogrenciDersId);
                     }
                     else
                     {

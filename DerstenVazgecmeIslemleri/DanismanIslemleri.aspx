@@ -24,11 +24,11 @@
     </script>
 
     <form id="form1" runat="server">
-        <cc1:AppHeader ID="AppHeader1" runat="server" meta:resourcekey="AppHeader1Resource1"
+        <cc1:AppHeader ID="AppHeaderDanismanIslemleri" runat="server" meta:resourcekey="AppHeaderDanismanIslemleriResource1"
         Text="" UygulamaIDGoster="True" />
-    <cc2:JsLocalizer ID="JsLocalizer1" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
-        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizer1Resource1" />
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <cc2:JsLocalizer ID="JsLocalizerDanismanIslemleri" runat="server" AssemblyName="DerstenVazgecmeIslemleri" CacheResult="True"
+        ResourcePath="Resources.Lang.DerstenVazgecmeIslemleriResources" meta:resourcekey="JsLocalizerDanismanIslemleriResource1" />
+    <asp:ScriptManager ID="ScriptManagerDanismanIslemleri" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
     <fieldset>
@@ -39,7 +39,7 @@
         <br />
     
         <telerik:RadGrid ID="grdDanisman" runat="server" AllowPaging="True" Width="920" AutoGenerateColumns="False"
-            meta:resourcekey="RadGridResource" PageSize="100" GridLines="None" CellSpacing="0"
+            meta:resourcekey="RadGridDanismanIslemleriResource" PageSize="100" GridLines="None" CellSpacing="0"
             ShowGroupPanel="false" ShowStatusBar="false" OnNeedDataSource="grdDanisman_NeedDataSource"
             OnItemCommand="grdDanisman_ItemCommand">
             <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
@@ -59,11 +59,11 @@
                             <asp:CheckBox runat="server" ID="chkOnay" AutoPostBack="true" />
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <telerik:GridBoundColumn DataField="OgrenciAd" HeaderText="Öğrenci Ad" UniqueName="OgrenciAd" ItemStyle-Width="200px"
+                    <telerik:GridBoundColumn DataField="OgrenciAd" HeaderText="Öğrenci Adı" UniqueName="OgrenciAd" ItemStyle-Width="200px"
                         HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-                    <telerik:GridBoundColumn DataField="OgrenciSoyad" HeaderText="Öğrenci Soyad" UniqueName="OgrenciSoyad"
+                    <telerik:GridBoundColumn DataField="OgrenciSoyad" HeaderText="Öğrenci Soyadı" UniqueName="OgrenciSoyad"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-                    <telerik:GridBoundColumn DataField="DersKodu" HeaderText="DersKodu" UniqueName="DersKodu"
+                    <telerik:GridBoundColumn DataField="DersKodu" HeaderText="Ders Kodu" UniqueName="DersKodu"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
                         <telerik:GridBoundColumn DataField="DersAdi" HeaderText="Ders Adı" UniqueName="DersAdi"
                         ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
@@ -87,5 +87,6 @@
         </telerik:RadGrid>
     </form>
     </fieldset>
+    <script>window.addEventListener("load", _ => {document.title = "Danışman İşlemleri"});</script>
 </body>
 </html>

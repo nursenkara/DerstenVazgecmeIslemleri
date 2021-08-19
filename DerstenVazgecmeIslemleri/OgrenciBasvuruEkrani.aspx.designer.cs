@@ -23,31 +23,31 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// AppHeader1 control.
+        /// AppHeaderOgrenciBasvuruEkrani control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeader1;
+        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeaderOgrenciBasvuruEkrani;
         
         /// <summary>
-        /// JsLocalizer1 control.
+        /// JsLocalizerOgrenciBasvuruEkrani control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizer1;
+        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizerOgrenciBasvuruEkrani;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// ScriptManagerOgrenciBasvuruEkrani control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.ScriptManager ScriptManagerOgrenciBasvuruEkrani;
         
         /// <summary>
         /// ltlInfo control.
@@ -93,6 +93,15 @@ namespace DerstenVazgecmeIslemleri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOnay;
+        
+        /// <summary>
+        /// lblAciklamaOgrenciBasvuruEkrani control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAciklamaOgrenciBasvuruEkrani;
         
         /// <summary>
         /// grdOgrenci control.

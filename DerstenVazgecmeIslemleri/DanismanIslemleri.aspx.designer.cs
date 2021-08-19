@@ -23,31 +23,31 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// AppHeader1 control.
+        /// AppHeaderDanismanIslemleri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeader1;
+        protected global::Unipa.Framework.Web.UI.UserControls.AppHeader AppHeaderDanismanIslemleri;
         
         /// <summary>
-        /// JsLocalizer1 control.
+        /// JsLocalizerDanismanIslemleri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizer1;
+        protected global::Unipa.Framework.Web.UI.JsLocalizer JsLocalizerDanismanIslemleri;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// ScriptManagerDanismanIslemleri control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.ScriptManager ScriptManagerDanismanIslemleri;
         
         /// <summary>
         /// ltlInfo control.

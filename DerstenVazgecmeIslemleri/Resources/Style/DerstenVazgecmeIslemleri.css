@@ -7,3 +7,23 @@ fieldset
     width:940px;
     height:auto;
 }
+.kaydet
+{
+    text-align:center;
+    width:150px;
+}
+ #box1 {
+        width: 150px;
+        height: 75px;
+        margin: auto;
+        padding: 10px;
+        display: table;
+    }
+ 
+    #box2 {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        color: #fff;
+        font-size: 22px;
+    }
