@@ -36,6 +36,18 @@ namespace DerstenVazgecmeIslemleri
 {
     public partial class OgrenciBasvuruEkrani : OgrenciBasePage<DerstenVazgecmeIslemleriUygulama>
     {
+
+        private List<OgrenciDersGoruntulemeDTO> DerstenVazgecenOgrenciler
+        {
+            get 
+            { 
+                return FromPageSession<List<OgrenciDersGoruntulemeDTO>>("DerstenVazgecenOgrenciListesi", null); 
+            }
+            set 
+            { 
+                PageSession["DerstenVazgecenOgrenciListesi"] = getDerstenVazgecenOgrencilerListesi();
+            }
+        }
         
          public List<OgrencininDersVazgecmeDTO> OgrencininKesinKayitOlduguDerslerinListesi
         {
@@ -50,14 +62,32 @@ namespace DerstenVazgecmeIslemleri
         }
 
 
+
         protected override int UygulamaID
         {
             get { return 10008101; }
         }
-
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-          // OgrenciBasvuruEkrani.aspx: Sayfa ilk yüklendiğinde tüm geri al butonları disabled olacak.
+           
+            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+            string sqlOgrenciDersIdyiBulma = string.Format(@"select od.OgrenciDersId from Ogrenci o inner join OgrenciDers od on o.OgrenciId=od.OgrenciId where o.OgrenciId = {0}",ogrenciId);
+            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sqlOgrenciDersIdyiBulma);
+            DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
+
+       
+
+            #region Başvurular açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
+            string sqlBasvuruTarihiArasindaMi = "select * from DersVazgecmeAktivite where GetDate() between OgrenciBasvuruBaslangicTarihi and OgrenciBasvuruBitisTarihi";
+            DbCommand cmdSelect = OgrenciMaster.Database.GetSqlStringCommand(sqlBasvuruTarihiArasindaMi);
+            DataTable dtSelect = OgrenciMaster.Database.ExecuteDatatable(cmdSelect);
+            bool basvurularAcik = dtSelect != null && dtSelect.Rows.Count > 0;
+            pnlGenel.Visible = basvurularAcik;
+            pnlUyari.Visible = !basvurularAcik;
+            #endregion
+
+            
         //OgrenciBasvuruEkrani.aspx: Vazgeç butonuna basılmışsa; geri al butonu aktif olacak vazgeç butonu pasif olacak.
       //OgrenciBasvuruEkrani.aspx: Geri Al butonuna basılmışsa; vazgeç butonu aktif olacak geri al butonu pasif olacak.
             grdOgrenci.Columns[3].Visible = false;
@@ -81,10 +111,19 @@ namespace DerstenVazgecmeIslemleri
         
 
         }
+        private List<OgrenciDersGoruntulemeDTO> getDerstenVazgecenOgrencilerListesi()
+        {
+            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+      
+            return OgrenciUygulama.DerstenVazgecenOgrencileriListele(ogrenciId);
 
+        }
         private List<OgrencininDersVazgecmeDTO> getderslist()
         {
-            return OgrenciUygulama.OgrencininAldigiDersleriListele(1826127);//webconfig ten hangi kullanıcının girdiğini anlaman gerekir
+            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+ 
+            
+            return OgrenciUygulama.OgrencininAldigiDersleriListele(ogrenciId);//webconfig ten hangi kullanıcının girdiğini anlaman gerekir
         }
 
 
@@ -104,12 +143,19 @@ namespace DerstenVazgecmeIslemleri
 
                     if (ogrenciDersId != -1)
                     {
+                        grdOgrenci.Columns[3].Visible = false;//geri al false olacak
+                        List<OgrenciDersGoruntulemeDTO> ogrenciDersGoruntulemeDTO = new List<OgrenciDersGoruntulemeDTO>();
+                        ogrenciDersGoruntulemeDTO.Add(new OgrenciDersGoruntulemeDTO
+                        { 
+                        DersKodu = grdOgrenci.Columns.FindByDataField("DersKodu").ToString(),
+                        DersAdi = grdOgrenci.Columns.FindByDataField("DersAdi").ToString()
+                        });
                         //Öğrenci dersten vazgeçecek.
-                        OgrenciUygulama.DersVazgecmeyiYapanOgrencininIlkKaydi(ogrenciDersId);
+                        //
                     }
                     else
                     {
-                        ltlInfo.Text = HataGoster("Vazgeçme işlemi yapılamadı.");
+                        //ltlInfo.Text = HataGoster("Vazgeçme işlemi yapılamadı.");
                     }
                 }
                 else if (e.CommandName == "cnGeriAl")
@@ -117,11 +163,18 @@ namespace DerstenVazgecmeIslemleri
                     //int ogrenciDersId = int.Parse(gdi.GetDataKeyValue("OgrenciDersId").ToString());
                     if (ogrenciDersId != -1)
                     {
+                        grdOgrenci.Columns[2].Visible = false;//vazgec false olacak
+                        List<OgrenciDersGoruntulemeDTO> ogrenciDersGoruntulemeDTO = new List<OgrenciDersGoruntulemeDTO>();
+                        ogrenciDersGoruntulemeDTO.Remove(new OgrenciDersGoruntulemeDTO
+                        {
+                            DersKodu = grdOgrenci.Columns.FindByDataField("DersKodu").ToString(),
+                            DersAdi = grdOgrenci.Columns.FindByDataField("DersAdi").ToString()
+                        });
                         
                     }
                     else
                     {
-                        ltlInfo.Text = HataGoster("Geri alma işlemi yapılamadı.");
+                        //ltlInfo.Text = HataGoster("Geri alma işlemi yapılamadı.");
                     }
                 }
                
@@ -139,9 +192,21 @@ namespace DerstenVazgecmeIslemleri
         }
         protected void btnOnay_Click(object sender, EventArgs e)
         {
-            
-       
+            //grdOgrenci.
+            //OgrenciUygulama.DersVazgecmeyiYapanOgrencininIlkKaydi(ogrenciDersId);
           
         }
+        //protected void btnVazgec_Click(object sender, EventArgs e)
+        //{
+        //    //grdOgrenci.Columns[3].Visible = false;//geri al false olacak
+
+
+        //}
+        //protected void btnGeriAl_Click(object sender, EventArgs e)
+        //{
+
+        //    //grdOgrenci.Columns[2].Visible = false;//vazgec false olacak
+
+        //}
     }
 }

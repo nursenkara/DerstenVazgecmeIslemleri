@@ -63,37 +63,30 @@ namespace DerstenVazgecmeIslemleri
             {
                 lblGanoSartiAciklamasi.Text = gano + " ortalamadan fazla olanlar başvurabilir.";
             }
-            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 2)//<
+            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 2)// <
             {
                 lblGanoSartiAciklamasi.Text = gano + " ortalamadan az olanlar başvuramaz.";
             }
-            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 3)//>=
+            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 3)// >=
             {
                 lblGanoSartiAciklamasi.Text = gano + " ortalamadan büyük veya eşit olanlar başvurabilir.";
             }
-            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 4)//<=
+            else if (Convert.ToInt32(cmbBuyukturKucukturEsittir.SelectedItem.Value) == 4)// <=
             {
                 lblGanoSartiAciklamasi.Text = gano + " ortalamadan küçük veya eşit olanlar başvuramaz.";
             }
 
 
-            DateTime ogrenciBasvuruBaslangicTarihi;
-            ogrenciBasvuruBaslangicTarihi = Convert.ToDateTime(radDateOgrenciBasvuruBaslangicTarihi.DbSelectedDate.ToString());
+            DateTime ogrenciBasvuruBaslangicTarihi = radDateOgrenciBasvuruBaslangicTarihi.SelectedDate ?? new DateTime();
+            DateTime ogrenciBasvuruBitisTarihi = radDateOgrenciBasvuruBitisTarihi.SelectedDate ?? new DateTime();
+            DateTime danismanOnayBaslangicTarihi = radDateDanismanOnayBaslangicTarihi.SelectedDate ?? new DateTime();
+            DateTime danismanOnayBitisTarihi = radDateDanismanOnayBitisTarihi.SelectedDate ?? new DateTime();
             
-            DateTime ogrenciBasvuruBitisTarihi;
-            ogrenciBasvuruBitisTarihi = Convert.ToDateTime(radDateOgrenciBasvuruBitisTarihi.DbSelectedDate.ToString());
-            DateTime danismanOnayBaslangicTarihi;
-            danismanOnayBaslangicTarihi = Convert.ToDateTime(radDateDanismanOnayBaslangicTarihi.DbSelectedDate.ToString());
-            DateTime danismanOnayBitisTarihi;
-            danismanOnayBitisTarihi = Convert.ToDateTime(radDateDanismanOnayBitisTarihi.DbSelectedDate.ToString());
-            int yil;
-            yil = yildonem_basvuru.Yil;
-            int donem ;
-            donem = yildonem_basvuru.Donem;
-            int ayniAndaVazgecebilecegiDersSayisi;
-            ayniAndaVazgecebilecegiDersSayisi = Convert.ToInt32(radAyniAndaVazgecebilecegiDersSayisi.Text);
-            bool ayniDerstenFarkliDonemdeVazgecebilirMi;
-            ayniDerstenFarkliDonemdeVazgecebilirMi = Convert.ToBoolean(chkAyniDerstenFarkliDonemdeVazgecmeDurumu.Checked.ToString());
+            int yil = yildonem_basvuru.Yil;
+            int donem = yildonem_basvuru.Donem;
+            int ayniAndaVazgecebilecegiDersSayisi = Convert.ToInt32(radAyniAndaVazgecebilecegiDersSayisi.Text);
+            bool ayniDerstenFarkliDonemdeVazgecebilirMi = chkAyniDerstenFarkliDonemdeVazgecmeDurumu.Checked;
+
             OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu = new OgrencininDersVazgecmeDTO();
             ogrencininDersVazgecmeDTOsu.Gano = gano;
             ogrencininDersVazgecmeDTOsu.OgrenciBasvuruBaslangicTarihi = ogrenciBasvuruBaslangicTarihi;
@@ -106,8 +99,8 @@ namespace DerstenVazgecmeIslemleri
             ogrencininDersVazgecmeDTOsu.AyniDerstenBaskaDonemdeVazgecebilirMi = ayniDerstenFarkliDonemdeVazgecebilirMi;
 
 
-            OgrenciUygulama.BasvuruOncesiIlkTanimlamaOgrenciIsleriInsert(ogrencininDersVazgecmeDTOsu);
-               
+            OgrenciUygulama.OgrenciIsleriSaveorUpdate(ogrencininDersVazgecmeDTOsu);
+
         }
     }
 }

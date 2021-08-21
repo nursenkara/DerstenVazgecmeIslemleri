@@ -64,7 +64,6 @@
             <td width="40%">
                 <div>
                     <asp:Label ID="lblGano" runat="server" Text="Gano:" meta:resourcekey="lblGanoResource1"></asp:Label>
-                   
                     <telerik:RadComboBox ID="cmbBuyukturKucukturEsittir" Width="75px" runat="server">
                         <Items>
                             <telerik:RadComboBoxItem Text="Seçiniz..." Value="0" />
@@ -79,13 +78,11 @@
                         LabelCssClass="" meta:resourcekey="txt_Gano">
                     </telerik:RadTextBox>
                     <br />
-                     <asp:Label ID="lblBilgi" runat="server" Text="Öğrencinin genel ağırlıklı not ortalamasına göre öğrenci başvuru ekranı açılacak. Belirlenen ganodan küçükse açılmayacak."
+                    <asp:Label ID="lblBilgi" runat="server" Text="Öğrencinin genel ağırlıklı not ortalamasına göre öğrenci başvuru ekranı açılacak. Belirlenen ganodan küçükse açılmayacak."
                         meta:resourcekey="lblBilgiResource1"></asp:Label>
-                        <br />
-                     <asp:Label ID="lblGanoSartiAciklamasi" runat="server" Text=""
-                        meta:resourcekey="lblGanoSartiAciklamaResource1"></asp:Label>
-                        <br />
- 
+                    <br />
+                    <asp:Label ID="lblGanoSartiAciklamasi" runat="server" Text="" meta:resourcekey="lblGanoSartiAciklamaResource1"></asp:Label>
+                    <br />
                 </div>
             </td>
             <td>
@@ -174,17 +171,16 @@
     </table>
     <br />
     <br />
-    
     <div id="box1">
-       <div id="box2">
-        
-            <asp:Button ID="btnKaydet" CommandName="cnKaydet" CssClass="kaydet" OnClick = "btnKaydet_Click" runat="server" Text="KAYDET" Visible="true">
-            </asp:Button>
-       </div>
-</div>
+        <div id="box2">
+            <asp:Button ID="btnKaydet" CommandName="cnKaydet" CssClass="kaydet" OnClick="btnKaydet_Click"
+                runat="server" Text="KAYDET" Visible="true"></asp:Button>
+        </div>
+    </div>
     </form>
 
-    <script>window.addEventListener("load", _ => {document.title = "Başvuru Öncesi Tanımlama"});
+    <script>
+    window.addEventListener("load", _ => {document.title = "Başvuru Öncesi Tanımlama"});
     </script>
 
 </body>

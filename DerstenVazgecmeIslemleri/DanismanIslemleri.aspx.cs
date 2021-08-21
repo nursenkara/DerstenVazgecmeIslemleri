@@ -41,7 +41,7 @@ namespace DerstenVazgecmeIslemleri
             }
             set
             {
-                PageSession["DerstenVazgecenOgrencilerinListesi"] = getDerstenVazgecenlerinListesi();
+                PageSession["DerstenVazgecenOgrencilerinListesi"] = getDerstenVazgecenOgrencilerListesi();
             }
         }
 
@@ -53,8 +53,15 @@ namespace DerstenVazgecmeIslemleri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Örnek kullanım
-            // OgrenciUygulama.DerstenVazgecmeKayitInsert(null, null, null);
+            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+            #region Danışman Onaylama işlemi açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
+            string sql = "select * from DersVazgecmeAktivite where GetDate() between DanismanOnayBaslangicTarihi and DanismanOnayBitisTarihi";
+            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sql);
+            DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
+            bool danismanOnaylamaAcik = dt != null && dt.Rows.Count > 0;
+            pnlGenel.Visible = danismanOnaylamaAcik;
+            pnlUyari.Visible = !danismanOnaylamaAcik;
+            #endregion
         }
 
         protected void grdDanisman_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
@@ -71,9 +78,11 @@ namespace DerstenVazgecmeIslemleri
                 ltlInfo.Text = HataGoster(ex.Message);
             }
         }
-        private List<OgrenciDersGoruntulemeDTO> getDerstenVazgecenlerinListesi()
+        private List<OgrenciDersGoruntulemeDTO> getDerstenVazgecenOgrencilerListesi()
         {
-            return OgrenciUygulama.DerstenVazgecenOgrencileriListele(4159, 42082108);//webconfig ten hangi kullanıcının girdiğini anlaman gerekir
+            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+            return OgrenciUygulama.DerstenVazgecenOgrencileriListele(ogrenciId);
+
         }
 
 

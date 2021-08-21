@@ -31,6 +31,7 @@
     <asp:ScriptManager ID="ScriptManagerDanismanIslemleri" runat="server">
     </asp:ScriptManager>
     <asp:Literal ID="ltlInfo" runat="server" EnableViewState="False" meta:resourcekey="ltlInfoResource1"></asp:Literal>
+     <asp:Panel ID="pnlGenel" runat="server">
     <fieldset>
         <legend>
             <asp:Label ID="lblDanismanVazgecmeIslemleri" runat="server" Text="Danışman Öğretmen Dersten Vazgeçme İşlemleri"></asp:Label>
@@ -85,8 +86,16 @@
                 <ClientEvents OnGridCreated="onGridCreated" />
             </ClientSettings>
         </telerik:RadGrid>
-    </form>
+   
     </fieldset>
+     </asp:Panel>
+    <asp:Panel ID="pnlUyari" runat="server" Visible="false">
+        <center>
+            <h1>
+                Onaylama işlemi şu an kapalıdır.</h1>
+        </center>
+    </asp:Panel>
+     </form>
     <script>window.addEventListener("load", _ => {document.title = "Danışman İşlemleri"});</script>
 </body>
 </html>

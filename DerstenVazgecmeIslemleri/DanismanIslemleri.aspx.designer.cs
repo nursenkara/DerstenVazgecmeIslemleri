@@ -59,6 +59,15 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.WebControls.Literal ltlInfo;
         
         /// <summary>
+        /// pnlGenel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlGenel;
+        
+        /// <summary>
         /// lblDanismanVazgecmeIslemleri control.
         /// </summary>
         /// <remarks>
@@ -75,5 +84,14 @@ namespace DerstenVazgecmeIslemleri {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid grdDanisman;
+        
+        /// <summary>
+        /// pnlUyari control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUyari;
     }
 }
