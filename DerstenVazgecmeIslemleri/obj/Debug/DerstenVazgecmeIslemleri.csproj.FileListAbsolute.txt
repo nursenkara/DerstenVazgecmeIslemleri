@@ -46,6 +46,13 @@ c:\tfs2008\UniOgrenci\Main\Src\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\DerstenVazgecmeIslemleri.dll
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\DerstenVazgecmeIslemleri.pdb
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\en\DerstenVazgecmeIslemleri.resources.dll
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Castle.DynamicProxy.dll
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Iesi.Collections.dll
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\log4net.dll
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\log4net.xml
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Castle.DynamicProxy.xml
+C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Iesi.Collections.xml
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\DerstenVazgecmeIslemleri.Resources.Lang.DerstenVazgecmeIslemleriResources.resources
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\DerstenVazgecmeIslemleri.Resources.Lang.DerstenVazgecmeIslemleriResources.en.resources
@@ -53,10 +60,3 @@ C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\en\DerstenVazgecmeIslemleri.resources.dll
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\DerstenVazgecmeIslemleri.dll
 C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\obj\Debug\DerstenVazgecmeIslemleri.pdb
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\log4net.dll
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\log4net.xml
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Iesi.Collections.dll
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Iesi.Collections.xml
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Castle.DynamicProxy.dll
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Castle.DynamicProxy.xml
-C:\Users\stajyerunipa\Desktop\DerstenVazgecmeIslemleri\DerstenVazgecmeIslemleri\bin\Microsoft.Practices.ObjectBuilder.dll

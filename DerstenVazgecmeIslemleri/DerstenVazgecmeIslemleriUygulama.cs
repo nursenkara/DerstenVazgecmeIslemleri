@@ -20,9 +20,6 @@ using System.Diagnostics;
 using DerstenVazgecmeIslemleri.Resources.Lang;
 using DerstenVazgecmeIslemleri.DTOs;
 using UniOgrenci.Master.Models;
-using DerstenVazgecmeIslemleri.Enums;
-
-
 
 namespace DerstenVazgecmeIslemleri
 {

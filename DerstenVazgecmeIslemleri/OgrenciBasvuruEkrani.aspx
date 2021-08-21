@@ -57,8 +57,8 @@
             <br />
             <telerik:RadGrid ID="grdOgrenci" runat="server" AllowPaging="True" Width="920" AutoGenerateColumns="False"
                 meta:resourcekey="RadGridOgrenciBasvuruResource" PageSize="100" GridLines="None"
-                CellSpacing="0" ShowGroupPanel="false" ShowStatusBar="false" OnNeedDataSource="grdOgrenci_NeedDataSource"
-                OnItemCommand="grdOgrenci_ItemCommand">
+                CellSpacing="0" ShowGroupPanel="false" ShowStatusBar="false" OnItemDataBound="grdOgrenci_ItemDataBound"
+                OnNeedDataSource="grdOgrenci_NeedDataSource" OnItemCommand="grdOgrenci_ItemCommand">
                 <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
                     AllowMultiColumnSorting="false" DataKeyNames="OgrenciDersId" ShowFooter="false"
                     Font-Names="Tahoma,Geneva,FreeSans,Helvetica,sans-serif" Font-Size="8">
@@ -75,7 +75,6 @@
                             ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
                         <telerik:GridBoundColumn DataField="DersAdi" HeaderText="Ders Adı" UniqueName="DersAdi"
                             ItemStyle-Width="150px" HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
-
                         <telerik:GridTemplateColumn>
                             <ItemTemplate>
                                 <telerik:RadButton ID="btnVazgec" CommandName="cnVazgec" runat="server" Text="Vazgeç">
@@ -98,6 +97,12 @@
                     <ClientEvents OnGridCreated="onGridCreated" />
                 </ClientSettings>
             </telerik:RadGrid>
+            <div>
+                <h4>
+                    Vazgeçilecek Dersler
+                </h4>
+                <asp:Label ID="lblVazgecilecekDersler" runat="server" Text=""></asp:Label>
+            </div>
         </fieldset>
     </asp:Panel>
     <asp:Panel ID="pnlUyari" runat="server" Visible="false">
@@ -107,8 +112,10 @@
         </center>
     </asp:Panel>
     </form>
+
     <script>
     window.addEventListener("load", _ => {document.title = "Öğrenci Başvuru Ekranı"});
     </script>
+
 </body>
 </html>

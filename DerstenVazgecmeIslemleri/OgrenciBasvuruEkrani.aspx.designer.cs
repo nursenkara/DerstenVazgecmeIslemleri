@@ -122,6 +122,15 @@ namespace DerstenVazgecmeIslemleri {
         protected global::Telerik.Web.UI.RadGrid grdOgrenci;
         
         /// <summary>
+        /// lblVazgecilecekDersler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVazgecilecekDersler;
+        
+        /// <summary>
         /// pnlUyari control.
         /// </summary>
         /// <remarks>

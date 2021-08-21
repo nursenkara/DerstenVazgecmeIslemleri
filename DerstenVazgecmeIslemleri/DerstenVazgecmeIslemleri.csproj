@@ -147,8 +147,6 @@
     <Compile Include="DTOs\OgrenciDersGoruntulemeDTO.cs" />
     <Compile Include="DTOs\OgrenciDersVazgecmeDTO.cs" />
     <Compile Include="DTOs\OgrencininDersVazgecmeDTO.cs" />
-    <Compile Include="Enums\DersVazgecmeDurumlar.cs" />
-    <Compile Include="Enums\VazgecebilmekIcinGanoyaGoreBasvuruDurumu.cs" />
     <Compile Include="OgrenciBasvuruEkrani.aspx.cs">
       <DependentUpon>OgrenciBasvuruEkrani.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
