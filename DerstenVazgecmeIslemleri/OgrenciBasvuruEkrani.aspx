@@ -47,7 +47,7 @@
             <div>
                 <asp:Button ID="btnDanismanaGonder" CommandName="cnDanismanaGonder" runat="server"
                     Text="Danışmana Gönder" Visible="true" OnClick="btnDanismanaGonder_Click"></asp:Button>
-                <asp:Button ID="btnOnay" CommandName="cnOnay" runat="server" Text="Onay" Visible="true">
+                <asp:Button ID="btnOnay" runat="server" Text="Onay" Visible="true" OnClick="btnOnay_Click">
                 </asp:Button>
             </div>
             <br />
