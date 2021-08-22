@@ -235,6 +235,7 @@ namespace DerstenVazgecmeIslemleri
                     dto.OgrenciDersId = ogrenciDersID;
                     OgrenciUygulama.DerstenVazgecmeDurumSaveOrUpdate(dto);
                 }
+                ltlInfo.Text = BilgiGoster("Dersler vazgeçilmek üzere danışmana gönderildi.");
             }
         }
 
