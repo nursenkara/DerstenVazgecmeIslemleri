@@ -233,7 +233,7 @@ namespace DerstenVazgecmeIslemleri
             if (VazgecilenDersler.Count > 0)
             {
                 string odIds = "";
-                foreach (var id in VazgecilenDersler)
+                foreach (int id in VazgecilenDersler)
                 {
                     odIds += id.ToString() + ",";
                 }
