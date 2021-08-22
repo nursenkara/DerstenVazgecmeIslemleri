@@ -54,34 +54,6 @@ namespace DerstenVazgecmeIslemleri
         }
         //1 --> 
 
-        public void DanismanOnaylamaDurumSaveOrUpdate2(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu, string ogrenciId)
-        {
-            string sql = string.Format(@"SELECT * FROM DersVazgecmeDurum dvd inner join OgrenciDers od on dvd.OgrenciDersId = od.OgrenciDersId 
-inner join Ogrenci o on o.OgrenciId = od.OgrenciId
-WHERE dvd.Durum = {0} and  o.OgrenciId = {1}
-", 2, ogrenciId);
-            //kayıt varsa var olan kaydı update edeceksin kayıt yoksa insert edeceksin
-            DataTable dt = OgrenciMaster.Database.ExecuteDatatable(OgrenciMaster.Database.GetSqlStringCommand(sql));
-
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                //update
-
-                DersVazgecmeDanismaninOnayGuncellemesi(ogrencininDersVazgecmeDTOsu);
-
-            }
-            else
-            {
-                DersVazgecmeDanismanOnaylamaKayitInsert(ogrencininDersVazgecmeDTOsu, ogrenciId);
-                // insert
-
-
-            }
-            DanismanOnaylamaLog(ogrencininDersVazgecmeDTOsu, ogrenciId);
-            //log
-        }
-
         public void OgrenciIsleriSaveorUpdate(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu)
         {
             string sql = string.Format(@"SELECT * FROM DersVazgecmeAktivite WHERE Yil = {0} AND Donem = {1}",
@@ -207,61 +179,24 @@ AyniDerstenBaskaDonemdeVazgecebilirMi = @AyniDerstenBaskaDonemdeVazgecebilirMi
 
             OgrenciMaster.Database.ExecuteNonQuery(cmdInsert);
         }
-        // DANIŞMAN ONAYLADI -- insert yapılmayacak sadece update ile durumu değiştirilecek.
-        public void DersVazgecmeDanismanOnaylamaKayitInsert(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu, string ogrenciId)
-        {
-            string sqlDersVazgecmeDanismanOnaylamaKayitInsert = string.Format(@"
-                Insert into DersVazgecmeDurum(
-                        Durum,
-                        OnaylayanKisi,
-                        OnaylandigiTarih,
-                        OgrenciDersID,
-                        VazgectigiDersSayisi
-                    )
-                values (
-                        @Durum,
-                        @OnaylayanKisi,
-                        @OnaylandigiTarih,
-                        @OgrenciDersID,
-                        @VazgectigiDersSayisi
-                    )
-select od from DersVazgecmeDurum dvd inner join OgrenciDers od on dvd.OgrenciDersId = od.OgrenciDersId 
-where od.OgrenciId = ", ogrenciId);
-
-            DbCommand cmdInsert = OgrenciMaster.Database.GetSqlStringCommand(sqlDersVazgecmeDanismanOnaylamaKayitInsert);
-            if (OgrenciVazgecebilecegiDersSayisiniAstiMi(ogrencininDersVazgecmeDTOsu.OgrencininVazgectigiDersSayisi))
-            {
-                //true ise aşmadı
-                OgrenciMaster.Database.AddInParameter(cmdInsert, "VazgectigiDersSayisi", DbType.Int32, ogrencininDersVazgecmeDTOsu.OgrencininVazgectigiDersSayisi);
-            }
-            else
-            {
-                Console.WriteLine(ogrencininDersVazgecmeDTOsu.AyniAndaVazgecebilecegiDersSayisi +
-                    " ders vazgeçebilirsiniz..." + (ogrencininDersVazgecmeDTOsu.OgrencininVazgectigiDersSayisi - ogrencininDersVazgecmeDTOsu.AyniAndaVazgecebilecegiDersSayisi) + " ders çıkarmalısınız...");
-                return;
-            }
-            //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanOnayladi;
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "Durum", DbType.Int32, 2); //DANIŞMAN ONAYLADI...
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylayanKisi", DbType.String, ogrencininDersVazgecmeDTOsu.OnaylayanKisi);
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylandigiTarih", DbType.DateTime, DateTime.Now);
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OgrenciDersID", DbType.Int32, ogrencininDersVazgecmeDTOsu.OgrenciDersId);
-
-            OgrenciMaster.Database.ExecuteNonQuery(cmdInsert);
-        }
-
 
         public void DersVazgecmeDanismaninOnayGuncellemesi(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu)
         {
-            //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanOnayladi;
-            string sqlDersVazgecmeDanismaninOnayGuncellemesi = string.Format(@"Update DersVazgecmeDurum set
-Durum={0},
-GuncelleyenKisi={1} ,
-GuncellenenTarih={2}", 2, ogrencininDersVazgecmeDTOsu.GuncelleyenKisi, DateTime.Now);
-
-
-            DbCommand cmdUpdate = OgrenciMaster.Database.GetSqlStringCommand(sqlDersVazgecmeDanismaninOnayGuncellemesi);
-
+            //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanOnayladi; // ENUM İPTAL EDİLDİ.
+            string sql = string.Format(@"
+                Update DersVazgecmeDurum set
+                    Durum = 2,
+                    GuncelleyenKisi = '{0}',
+                    GuncellenenTarih = GetDate()
+                where OgrenciDersID = {1}
+            ",
+             ogrencininDersVazgecmeDTOsu.GuncelleyenKisi,
+             ogrencininDersVazgecmeDTOsu.OgrenciDersId
+            );
+            DbCommand cmdUpdate = OgrenciMaster.Database.GetSqlStringCommand(sql);
             OgrenciMaster.Database.ExecuteNonQuery(cmdUpdate);
+
+            DanismanOnaylamaLog(ogrencininDersVazgecmeDTOsu);
         }
 
 
@@ -306,40 +241,35 @@ GuncellenenTarih={2}", 2, ogrencininDersVazgecmeDTOsu.GuncelleyenKisi, DateTime.
         }
 
         //danışmana gönderildi ve danışmanın sayfasında listelenecek
-        public List<OgrenciDersGoruntulemeDTO> DerstenVazgecenOgrencileriListele(string ogrenciId)
+        public List<OgrenciDersGoruntulemeDTO> DerstenVazgecenOgrencileriListele()
         {
             //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanaGonderildi;
             //DURUMA GÖRE DVD TABLOSUNDAN VAZGEÇENLERİ SEÇECEĞİZ...
 
-            string sqlDerstenVazgecenOgrencileriListele = string.Format(@"
-select od.OgrenciDersId,o.Ad,d.DersKodu,d.DersAdi 
-from DersVazgecmeDurum dvd inner join OgrenciDers od 
-on dvd.OgrenciDersId = od.OgrenciDersId
-inner join Ogrenci o
-on o.OgrenciId = od.OgrenciId
-inner join OgretimUyesi ou
-on ou.OgretimUyesiId = o.DanismanId
-inner join Ders d
-on d.dersId = od.DersId
-where dvd.Durum = {0} and o.OgrenciId = {1}", 1, ogrenciId);
-
-            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sqlDerstenVazgecenOgrencileriListele);
+            string sql = @"
+                select
+                    od.OgrenciDersId,
+                    o.Ad as OgrenciAd,
+                    o.soyad as OgrenciSoyad,
+                    d.DersKodu,
+                    d.DersAdi
+                from DersVazgecmeDurum dvd
+                    inner join OgrenciDers od on dvd.OgrenciDersId = od.OgrenciDersId
+                    inner join Ogrenci o on o.OgrenciId = od.OgrenciId
+                    inner join OgretimUyesi ou on ou.OgretimUyesiId = o.DanismanId
+                    inner join Ders d on d.dersId = od.DersId
+                where dvd.Durum = 1
+            ";
+            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sql);
             DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
-
-            List<OgrenciDersGoruntulemeDTO> list = new List<OgrenciDersGoruntulemeDTO>();
-
-            OgrenciDersGoruntulemeDTO ogrenciAdSoyad = OgrenciAdiveSoyadiniGetir(ogrenciId);
-
-
-            list = dt.AsEnumerable()
-    .Select(row => new OgrenciDersGoruntulemeDTO
-    {
-        DersKodu = row.Field<string>("DersKodu"),
-        DersAdi = row.Field<string>("DersAdi"),
-        OgrenciAd = ogrenciAdSoyad.OgrenciAd,
-        OgrenciSoyad = ogrenciAdSoyad.OgrenciSoyad
-    }).ToList();
-            return list;
+            return dt.AsEnumerable().Select(row => new OgrenciDersGoruntulemeDTO
+            {
+                OgrenciDersId = row.Field<int>("OgrenciDersId"),
+                DersKodu = row.Field<string>("DersKodu"),
+                DersAdi = row.Field<string>("DersAdi"),
+                OgrenciAd = row.Field<string>("OgrenciAd"),
+                OgrenciSoyad = row.Field<string>("OgrenciSoyad")
+            }).ToList();
         }
 
         public void OgrenciGeriAlInsert()
@@ -593,35 +523,34 @@ DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu = {0}", 2); //Başvuramaz.
 
         }
         //danışman onayladı log tablosuna da kaydedilecek.
-        public void DanismanOnaylamaLog(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu, string ogrenciId)
+        public void DanismanOnaylamaLog(OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDTOsu)
         {
-            string sqlDanismanOnaylamaLog = string.Format(@"
-                Insert into DersVazgecmeDurum(
-                        Durum,
-                        OnaylayanKisi,
-                        OnaylandigiTarih,
-                        OgrenciDersID,
-                        VazgectigiDersSayisi
-                    )
-                values (
-                        @Durum,
-                        @OnaylayanKisi,
-                        @OnaylandigiTarih,
-                        @OgrenciDersID,
-                        @VazgectigiDersSayisi
-                    )
-select od from DersVazgecmeDurum dvd inner join OgrenciDers od on dvd.OgrenciDersId = od.OgrenciDersId 
-where od.OgrenciId = ", ogrenciId);
+            //            string sqlDanismanOnaylamaLog = string.Format(@"
+            //                Insert into DersVazgecmeDurum(
+            //                        Durum,
+            //                        OnaylayanKisi,
+            //                        OnaylandigiTarih,
+            //                        OgrenciDersID,
+            //                        VazgectigiDersSayisi
+            //                    )
+            //                values (
+            //                        @Durum,
+            //                        @OnaylayanKisi,
+            //                        @OnaylandigiTarih,
+            //                        @OgrenciDersID,
+            //                        @VazgectigiDersSayisi
+            //                    )
+            //");
 
-            DbCommand cmdInsert = OgrenciMaster.Database.GetSqlStringCommand(sqlDanismanOnaylamaLog);
+            //            DbCommand cmdInsert = OgrenciMaster.Database.GetSqlStringCommand(sqlDanismanOnaylamaLog);
 
-            //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanOnayladi;
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "Durum", DbType.Int32, 2); //DANIŞMAN ONAYLADI...
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylayanKisi", DbType.String, ogrencininDersVazgecmeDTOsu.OnaylayanKisi);
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylandigiTarih", DbType.DateTime, DateTime.Now);
-            OgrenciMaster.Database.AddInParameter(cmdInsert, "OgrenciDersID", DbType.Int32, ogrencininDersVazgecmeDTOsu.OgrenciDersId);
+            //            //DersVazgecmeDurumlar durum = DersVazgecmeDurumlar.DanismanOnayladi;
+            //            OgrenciMaster.Database.AddInParameter(cmdInsert, "Durum", DbType.Int32, 2); //DANIŞMAN ONAYLADI...
+            //            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylayanKisi", DbType.String, ogrencininDersVazgecmeDTOsu.OnaylayanKisi);
+            //            OgrenciMaster.Database.AddInParameter(cmdInsert, "OnaylandigiTarih", DbType.DateTime, DateTime.Now);
+            //            OgrenciMaster.Database.AddInParameter(cmdInsert, "OgrenciDersID", DbType.Int32, ogrencininDersVazgecmeDTOsu.OgrenciDersId);
 
-            OgrenciMaster.Database.ExecuteNonQuery(cmdInsert);
+            //            OgrenciMaster.Database.ExecuteNonQuery(cmdInsert);
         }
 
 

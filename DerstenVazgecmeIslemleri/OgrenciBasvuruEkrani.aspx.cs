@@ -75,17 +75,6 @@ namespace DerstenVazgecmeIslemleri
 
         ///
 
-        private List<OgrenciDersGoruntulemeDTO> DerstenVazgecenOgrenciler
-        {
-            get
-            {
-                return FromPageSession<List<OgrenciDersGoruntulemeDTO>>("DerstenVazgecenOgrenciListesi", null);
-            }
-            set
-            {
-                PageSession["DerstenVazgecenOgrenciListesi"] = getDerstenVazgecenOgrencilerListesi();
-            }
-        }
 
         public List<OgrencininDersVazgecmeDTO> OgrencininKesinKayitOlduguDerslerinListesi
         {
@@ -109,7 +98,7 @@ namespace DerstenVazgecmeIslemleri
         {
             // geçici olarak bir aktif öğrenci alındı.
             // select * from ogrenci where Durum = 905002
-            OgrenciId = "2264661"; // UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+            OgrenciId = "2239801"; // "2240155"; // "2264661"; // UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
             AyniAndaVazgecebilecegiDersSayisi = OgrenciUygulama.GetAyniAndaVazgecebilecegiDersSayisi();
 
             OgrencininKesinKayitOlduguDerslerinListesi = getderslist();
@@ -164,11 +153,6 @@ namespace DerstenVazgecmeIslemleri
 
 
 
-        }
-
-        private List<OgrenciDersGoruntulemeDTO> getDerstenVazgecenOgrencilerListesi()
-        {
-            return OgrenciUygulama.DerstenVazgecenOgrencileriListele(OgrenciId);
         }
 
         private List<OgrencininDersVazgecmeDTO> getderslist()

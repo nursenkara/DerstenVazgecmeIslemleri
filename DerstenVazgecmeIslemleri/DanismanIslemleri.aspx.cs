@@ -33,6 +33,19 @@ namespace DerstenVazgecmeIslemleri
 {
     public partial class DanismanIslemleri : OgrenciBasePage<DerstenVazgecmeIslemleriUygulama>
     {
+
+        public string Danisman
+        {
+            get
+            {
+                return FromPageSession<string>("Danisman", null);
+            }
+            set
+            {
+                PageSession["Danisman"] = value;
+            }
+        }
+
         public List<OgrenciDersGoruntulemeDTO> DerstenVazgecenOgrencilerinListesi
         {
             get
@@ -41,7 +54,7 @@ namespace DerstenVazgecmeIslemleri
             }
             set
             {
-                PageSession["DerstenVazgecenOgrencilerinListesi"] = getDerstenVazgecenOgrencilerListesi();
+                PageSession["DerstenVazgecenOgrencilerinListesi"] = value;
             }
         }
 
@@ -53,7 +66,7 @@ namespace DerstenVazgecmeIslemleri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
+            Danisman = "Danışman Adı";
             #region Danışman Onaylama işlemi açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
             string sql = "select * from DersVazgecmeAktivite where GetDate() between DanismanOnayBaslangicTarihi and DanismanOnayBitisTarihi";
             DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sql);
@@ -66,43 +79,36 @@ namespace DerstenVazgecmeIslemleri
 
         protected void grdDanisman_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-
             try
             {
-                if (DerstenVazgecenOgrencilerinListesi == null)
-                    DerstenVazgecenOgrencilerinListesi = new List<OgrenciDersGoruntulemeDTO>();
-                grdDanisman.DataSource = DerstenVazgecenOgrencilerinListesi;
+                grdDanisman.DataSource = OgrenciUygulama.DerstenVazgecenOgrencileriListele();
             }
             catch (Exception ex)
             {
                 ltlInfo.Text = HataGoster(ex.Message);
             }
         }
-        private List<OgrenciDersGoruntulemeDTO> getDerstenVazgecenOgrencilerListesi()
-        {
-            string ogrenciId = UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
-            return OgrenciUygulama.DerstenVazgecenOgrencileriListele(ogrenciId);
-
-        }
-
-
 
         protected void grdDanisman_ItemCommand(object sender, GridCommandEventArgs e)
         {
             try
             {
                 GridDataItem gdi = (GridDataItem)e.Item;
-                int OgrenciDersId = int.Parse(gdi.GetDataKeyValue("OgrenciDersId").ToString());
+                int ogrenciDersId = 0;
+                int.TryParse(gdi.GetDataKeyValue("OgrenciDersId").ToString(), out ogrenciDersId);
                 if (e.CommandName == "cnOnay")
                 {
-                    if (OgrenciDersId != -1)
+                    if (ogrenciDersId != -1)
                     {
-                        
+                        OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+                        dto.OgrenciDersId = ogrenciDersId;
+                        dto.GuncelleyenKisi = Danisman;
+                        OgrenciUygulama.DersVazgecmeDanismaninOnayGuncellemesi(dto);
+                        grdDanisman.Rebind();
+                        ltlInfo.Text = BilgiGoster("Vazgeçme onaylandı.");
                     }
                     else
-                    {
                         ltlInfo.Text = HataGoster("Onay işlemi yapılamadı.");
-                    }
                 }
 
             }
