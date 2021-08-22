@@ -240,9 +240,7 @@ namespace DerstenVazgecmeIslemleri
 
         protected void btnOnay_Click(object sender, EventArgs e)
         {
-            //grdOgrenci.
-            //OgrenciUygulama.DersVazgecmeyiYapanOgrencininIlkKaydi(ogrenciDersId);
-
+            grdOgrenci.Visible = false;
         }
         //protected void btnVazgec_Click(object sender, EventArgs e)
         //{
