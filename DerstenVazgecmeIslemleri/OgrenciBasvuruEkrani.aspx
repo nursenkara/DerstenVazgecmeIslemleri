@@ -47,8 +47,6 @@
             <div>
                 <asp:Button ID="btnDanismanaGonder" CommandName="cnDanismanaGonder" runat="server"
                     Text="Danışmana Gönder" Visible="true" OnClick="btnDanismanaGonder_Click"></asp:Button>
-                <asp:Button ID="btnOnay" runat="server" Text="Onay" Visible="true" OnClick="btnOnay_Click">
-                </asp:Button>
             </div>
             <br />
             <div>
@@ -57,7 +55,7 @@
             <br />
             <telerik:RadGrid ID="grdOgrenci" runat="server" AllowPaging="True" Width="920" AutoGenerateColumns="False"
                 meta:resourcekey="RadGridOgrenciBasvuruResource" PageSize="100" GridLines="None"
-                CellSpacing="0" ShowGroupPanel="false" ShowStatusBar="false" OnItemDataBound="grdOgrenci_ItemDataBound"
+                CellSpacing="0" ShowGroupPanel="false" ShowStatusBar="false" 
                 OnNeedDataSource="grdOgrenci_NeedDataSource" OnItemCommand="grdOgrenci_ItemCommand">
                 <MasterTableView AllowSorting="true" TableLayout="Fixed" CommandItemDisplay="Top"
                     AllowMultiColumnSorting="false" DataKeyNames="OgrenciDersId" ShowFooter="false"
@@ -105,10 +103,17 @@
             </div>
         </fieldset>
     </asp:Panel>
-    <asp:Panel ID="pnlUyari" runat="server" Visible="false">
+    <asp:Panel ID="pnlBasvuruKapaliUyarisi" runat="server" Visible="false">
         <center>
             <h1>
-                Başvurular şuan kapalıdır.</h1>
+                Başvurular şuan kapalıdır.Başvuru tarihleri dışındasınız.</h1>
+        </center>
+    </asp:Panel>
+    
+      <asp:Panel ID="pnlGanoUygunDegilUyarisi" runat="server" Visible="false">
+        <center>
+            <h1>
+                Başvurular şuan kapalıdır.Başvuru tarihleri dışındasınız.</h1>
         </center>
     </asp:Panel>
     </form>

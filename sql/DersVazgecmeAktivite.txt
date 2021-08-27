@@ -1,8 +1,7 @@
 create table DersVazgecmeAktivite(
 DersVazgecmeAktiviteID int primary key identity(1,1),
-DersVazgecmeDurumID int foreign key references DersVazgecmeDurum(DersVazgecmeDurumID),
 DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu int, -- > 1 ; < 2 ;
-Gano decimal,
+Gano decimal,--öğrenci işlerinin belirlediği gano
 OgrenciBasvuruBaslangicTarihi datetime,
 OgrenciBasvuruBitisTarihi datetime,
 DanismanOnayBaslangicTarihi datetime,

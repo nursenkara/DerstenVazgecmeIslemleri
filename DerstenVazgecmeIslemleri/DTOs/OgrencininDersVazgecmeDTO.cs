@@ -8,6 +8,7 @@ namespace DerstenVazgecmeIslemleri.DTOs
     [Serializable]
     public class OgrencininDersVazgecmeDTO
     {
+        public int DersVazgecmeAktiviteId { get; set; }
         public int OgrenciDersId { get; set; }
         public string DersAdi { get; set; }
         public string DersKodu { get; set; }
@@ -18,6 +19,8 @@ namespace DerstenVazgecmeIslemleri.DTOs
         public DateTime GuncellemeTarihi { get; set; }
         public string OnaylayanKisi { get; set; }
         public DateTime OnaylamaTarihi { get; set; }
+        public string ReddedenKisi { get; set; }
+        public DateTime ReddetmeTarihi { get; set; }
         public DateTime OgrencininBasvurduguTarih { get; set; }
         public int AyniAndaVazgecebilecegiDersSayisi { get; set; }
         public int OgrencininVazgectigiDersSayisi { get; set; }
@@ -30,6 +33,6 @@ namespace DerstenVazgecmeIslemleri.DTOs
         public int Yil { get; set; }
         public int Donem { get; set; }
         public int DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu { get; set; }
-        public decimal Gano { get; set; }
+        public decimal OgrenciIslerininBelirledigiGano { get; set; }
     }
 }

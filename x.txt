@@ -1,3 +1,0 @@
-order by
-                        od.OgretimYili,
-                        od.OgretimDonemi asc

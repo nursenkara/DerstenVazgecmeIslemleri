@@ -34,6 +34,19 @@ namespace DerstenVazgecmeIslemleri
     public partial class DanismanIslemleri : OgrenciBasePage<DerstenVazgecmeIslemleriUygulama>
     {
 
+
+
+        public List<int> DanismanaGonderilenDersler
+        {
+            get
+            {
+                return FromPageSession<List<int>>("DanismanaGonderilenDersler", null);
+            }
+            set
+            {
+                PageSession["DanismanaGonderilenDersler"] = value;
+            }
+        }
         public string Danisman
         {
             get
@@ -43,6 +56,18 @@ namespace DerstenVazgecmeIslemleri
             set
             {
                 PageSession["Danisman"] = value;
+            }
+        }
+
+        public int DanismanId
+        {
+            get
+            {
+                return FromPageSession<int>("DanismanId", 0);
+            }
+            set
+            {
+                PageSession["DanismanId"] = value;
             }
         }
 
@@ -57,6 +82,17 @@ namespace DerstenVazgecmeIslemleri
                 PageSession["DerstenVazgecenOgrencilerinListesi"] = value;
             }
         }
+        public string OgrenciId
+        {
+            get
+            {
+                return FromPageSession<string>("OgrenciId", null);
+            }
+            set
+            {
+                PageSession["OgrenciId"] = value;
+            }
+        }
 
 
         protected override int UygulamaID
@@ -66,14 +102,31 @@ namespace DerstenVazgecmeIslemleri
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Danisman = "Danışman Adı";
+            DanismanId = 24888;
+            OgrenciDersGoruntulemeDTO das = new OgrenciDersGoruntulemeDTO();
+            das.DanismanAdi = OgrenciUygulama.DanismanAdiniSoyadiniGetir(DanismanId).DanismanAdi;
+            das.DanismanSoyadi = OgrenciUygulama.DanismanAdiniSoyadiniGetir(DanismanId).DanismanSoyadi;
+            Danisman = das.DanismanAdi + " " +das.DanismanSoyadi;
+            DerstenVazgecenOgrencilerinListesi = OgrenciUygulama.DerstenVazgecenOgrencileriListele();
+            OgrenciId = "2239801";
+
+
+            if (DanismanaGonderilenDersler == null)
+            {
+                DanismanaGonderilenDersler = OgrenciUygulama.GetDanismanaGonderilenOgrenciDersIdler(OgrenciId);
+     
+            }
             #region Danışman Onaylama işlemi açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
-            string sql = "select * from DersVazgecmeAktivite where GetDate() between DanismanOnayBaslangicTarihi and DanismanOnayBitisTarihi";
-            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sql);
-            DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
-            bool danismanOnaylamaAcik = dt != null && dt.Rows.Count > 0;
-            pnlGenel.Visible = danismanOnaylamaAcik;
-            pnlUyari.Visible = !danismanOnaylamaAcik;
+            if (OgrenciUygulama.DanismanOnayTarihleriArasindaMi())
+            {
+                pnlGenel.Visible = true;
+
+            }
+            else
+            {
+                pnlUyari.Visible = true;
+                pnlGenel.Visible = false;
+            }
             #endregion
         }
 
@@ -81,7 +134,9 @@ namespace DerstenVazgecmeIslemleri
         {
             try
             {
-                grdDanisman.DataSource = OgrenciUygulama.DerstenVazgecenOgrencileriListele();
+                if (DerstenVazgecenOgrencilerinListesi == null)
+                    DerstenVazgecenOgrencilerinListesi = new List<OgrenciDersGoruntulemeDTO>();
+                grdDanisman.DataSource = DerstenVazgecenOgrencilerinListesi;
             }
             catch (Exception ex)
             {
@@ -102,13 +157,36 @@ namespace DerstenVazgecmeIslemleri
                     {
                         OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
                         dto.OgrenciDersId = ogrenciDersId;
-                        dto.GuncelleyenKisi = Danisman;
-                        OgrenciUygulama.DersVazgecmeDanismaninOnayGuncellemesi(dto);
+                        dto.IslemiYapanKullanici = Danisman;
+                        OgrenciUygulama.DanismanOnayInsert(dto);
                         grdDanisman.Rebind();
                         ltlInfo.Text = BilgiGoster("Vazgeçme onaylandı.");
                     }
                     else
                         ltlInfo.Text = HataGoster("Onay işlemi yapılamadı.");
+                }
+                else if (e.CommandName == "cnRed")
+                {
+                    if (ogrenciDersId != -1)
+                    {
+                        OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+                        dto.OgrenciDersId = ogrenciDersId;
+                        dto.IslemiYapanKullanici = Danisman;
+                        OgrenciUygulama.DanismanRedInsert(dto);
+
+                        int index = DanismanaGonderilenDersler.IndexOf(ogrenciDersId);
+                        if (index > -1 && DanismanaGonderilenDersler.Count > 0)
+                             {
+                              DanismanaGonderilenDersler.RemoveAt(index);
+                               //lblVazgecilecekDerslerGuncelle(); gridin onay ve red i silinmeli ve reddedildi yazılmalı
+                              grdDanisman.Rebind();
+
+                            }
+                       
+                        ltlInfo.Text = BilgiGoster("Reddetme onaylandı.");
+                    }
+                    else
+                        ltlInfo.Text = HataGoster("Reddetme işlemi yapılamadı.");
                 }
 
             }

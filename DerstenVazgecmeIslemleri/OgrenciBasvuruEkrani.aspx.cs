@@ -73,8 +73,6 @@ namespace DerstenVazgecmeIslemleri
             }
         }
 
-        ///
-
 
         public List<OgrencininDersVazgecmeDTO> OgrencininKesinKayitOlduguDerslerinListesi
         {
@@ -100,31 +98,47 @@ namespace DerstenVazgecmeIslemleri
             // select * from ogrenci where Durum = 905002
             OgrenciId = "2239801"; // "2240155"; // "2264661"; // UnipaMaster.AuthenticatedUser.KullaniciProfil.EkBilgi1;
             AyniAndaVazgecebilecegiDersSayisi = OgrenciUygulama.GetAyniAndaVazgecebilecegiDersSayisi();
-
+ 
             OgrencininKesinKayitOlduguDerslerinListesi = getderslist();
+
+            OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+            
+
+             //dto.OgrenciIslerininBelirledigiGano = OgrenciUygulama.OgrenciIslerininBelirledigiGano(ogrencininDersVazgecmeDtosu).ToDecimal() ?? new Decimal();
+
 
             if (VazgecilenDersler == null)
             {
-                VazgecilenDersler = new List<int>();
+                VazgecilenDersler = OgrenciUygulama.GetOgrencininDahaOncedenVazgectigiOgrenciDersIdler(OgrenciId);
+                lblVazgecilecekDerslerGuncelle();
             }
+            #region Öğrencinin ganosuna uygunsa genel paneli açılacak,uygun değilse ikinci uyari paneli açılacak
+            //if (OgrenciUygulama.OgrenciGanosuEsitveBuyukse(dto,OgrenciId) && 
+            //    OgrenciUygulama.OgrenciGanosuEsitveKucukse(dto,OgrenciId) &&
+            //    OgrenciUygulama.OgrenciGanosuKucukse(dto, OgrenciId) &&
+            //    OgrenciUygulama.OgrenciGanosuBuyukse(dto, OgrenciId))
+            //{
+            //    pnlGenel.Visible = true;
+            //    pnlBasvuruKapaliUyarisi.Visible = false;
+            //}
+            //else
+            //    pnlGanoUygunDegilUyarisi.Visible = true;
 
-            string sqlOgrenciDersIdyiBulma = string.Format(@"select od.OgrenciDersId from Ogrenci o inner join OgrenciDers od on o.OgrenciId=od.OgrenciId where o.OgrenciId = {0}", OgrenciId);
-            DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sqlOgrenciDersIdyiBulma);
-            DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
-
-            #region Başvurular açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
-            string sqlBasvuruTarihiArasindaMi = "select * from DersVazgecmeAktivite where GetDate() between OgrenciBasvuruBaslangicTarihi and OgrenciBasvuruBitisTarihi";
-            DbCommand cmdSelect = OgrenciMaster.Database.GetSqlStringCommand(sqlBasvuruTarihiArasindaMi);
-            DataTable dtSelect = OgrenciMaster.Database.ExecuteDatatable(cmdSelect);
-            bool basvurularAcik = dtSelect != null && dtSelect.Rows.Count > 0;
-            pnlGenel.Visible = basvurularAcik;
-            pnlUyari.Visible = !basvurularAcik;
             #endregion
 
-            //OgrenciBasvuruEkrani.aspx: Vazgeç butonuna basılmışsa; geri al butonu aktif olacak vazgeç butonu pasif olacak.
-            //OgrenciBasvuruEkrani.aspx: Geri Al butonuna basılmışsa; vazgeç butonu aktif olacak geri al butonu pasif olacak.
+            #region Başvurular açıksa Genel paneli, kapalıysa Uyarı paneli açılacak.
+            if (OgrenciUygulama.OgrenciBasvuruTarihleriArasindaBasvurmusMu())
+            {
+                pnlGenel.Visible = true;
+                pnlBasvuruKapaliUyarisi.Visible = false;
+            }
+            else
+            {
+                pnlBasvuruKapaliUyarisi.Visible = true;
+                pnlGenel.Visible = false;
+            }
+            #endregion
 
-            // grdOgrenci.Columns[3].Visible = false; // visible false yapılmayacak. Buton disable yapılacak.
         }
 
         protected void grdOgrenci_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
@@ -141,23 +155,11 @@ namespace DerstenVazgecmeIslemleri
             }
         }
 
-        protected void grdOgrenci_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
-        {
-
-
-
-            //if (e.Item is Telerik.Web.UI.GridTemplateColumn)
-            //    {
-            //        e.Item.Cells[3].Enabled = false;
-            //    }
-
-
-
-        }
+ 
 
         private List<OgrencininDersVazgecmeDTO> getderslist()
         {
-            return OgrenciUygulama.OgrencininAldigiDersleriListele(OgrenciId);//webconfig ten hangi kullanıcının girdiğini anlaman gerekir
+            return OgrenciUygulama.OgrencininAldigiDersleriListele(OgrenciId);
         }
 
         protected void grdOgrenci_ItemCommand(object sender, GridCommandEventArgs e)
@@ -167,20 +169,33 @@ namespace DerstenVazgecmeIslemleri
                 GridDataItem gdi = (GridDataItem)e.Item;
                 int ogrenciDersId = 0;
                 int.TryParse(gdi.GetDataKeyValue("OgrenciDersId").ToString(), out ogrenciDersId);
-
+                OgrencininDersVazgecmeDTO ogrencininDersVazgecmeDtosu = new OgrencininDersVazgecmeDTO();
+                ogrencininDersVazgecmeDtosu.OgrenciDersId = ogrenciDersId;
+                 
+                
                 if (e.CommandName == "cnVazgec")
                 {
                     if (ogrenciDersId != -1)
                     {
                         if (AyniAndaVazgecebilecegiDersSayisi > VazgecilenDersler.Count)
                         {
-                            if (!VazgecilenDersler.Contains(ogrenciDersId)) // listede yoksa ekle
+                            if (!VazgecilenDersler.Contains(ogrenciDersId) || !OgrenciUygulama.GetOgrencininDahaOncedenVazgectigiVeOnaylananOgrenciDersIdler(OgrenciId).Contains(ogrenciDersId) || !OgrenciUygulama.GetOgrencininDahaOncedenVazgectigiVeDanismanaGonderdigiOgrenciDersIdler(OgrenciId).Contains(ogrenciDersId)) // listede yoksa durumu 5 olanlarda, ONAYLANMADIYSA ve danışmana gönderilmedi
                             {
-                                VazgecilenDersler.Add(ogrenciDersId);
-                                lblVazgecilecekDerslerGuncelle();
+                                 
+                                 VazgecilenDersler.Add(ogrenciDersId);
+                                 lblVazgecilecekDerslerGuncelle();
+                                 OgrenciUygulama.OgrenciVazgectiInsert(ogrencininDersVazgecmeDtosu);
+                                 //OgrenciUygulama.OgrenciVazgectiLog(ogrencininDersVazgecmeDtosu.OgrenciDersId);
+
+                                 if (OgrenciUygulama.GetOgrencininDahaOncedenVazgectigiVeDanismanaGonderdigiOgrenciDersIdler(OgrenciId).Contains(ogrenciDersId))
+                                 {
+                                     OgrenciUygulama.OgrenciVazgectiUpdate(ogrencininDersVazgecmeDtosu);
+                                 }
+
                             }
                             else
                                 ltlInfo.Text = UyariGoster("Ders vazgeçilmek üzere listeye eklenmiş.");
+                            
                         }
                         else
                             ltlInfo.Text = UyariGoster(string.Format("Aynı anda vazgeçilebilecek ders sayısı en fazla {0} olmalıdır.", AyniAndaVazgecebilecegiDersSayisi));
@@ -195,6 +210,8 @@ namespace DerstenVazgecmeIslemleri
                         {
                             VazgecilenDersler.RemoveAt(index);
                             lblVazgecilecekDerslerGuncelle();
+                            OgrenciUygulama.OgrenciGeriAlInsert(ogrenciDersId);
+                            //ogrencininDersVazgecmeDtosu.Durum = 4;
                         }
                     }
                 }
@@ -207,38 +224,38 @@ namespace DerstenVazgecmeIslemleri
 
         protected void btnDanismanaGonder_Click(object sender, EventArgs e)
         {
-            if (VazgecilenDersler.Count > 0)
+            OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+            
+            if (VazgecilenDersler.Count > 0 && VazgecilenDersler.Count <= OgrenciUygulama.GetAyniAndaVazgecebilecegiDersSayisi().ToInt())
             {
+
                 OgrenciDersGoruntulemeDTO oas = OgrenciUygulama.OgrenciAdiveSoyadiniGetir(OgrenciId);
                 foreach (int ogrenciDersID in VazgecilenDersler)
                 {
+                   
+
                     string ekleyenGuncelleyenKisi = oas.OgrenciAd + " " + oas.OgrenciSoyad;
-                    OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+
                     dto.IlkEkleyenKisi = ekleyenGuncelleyenKisi;
                     dto.GuncelleyenKisi = ekleyenGuncelleyenKisi;
                     dto.OgrenciDersId = ogrenciDersID;
-                    OgrenciUygulama.DerstenVazgecmeDurumSaveOrUpdate(dto);
+                    
+
+                    OgrenciUygulama.DanismanaGonderildiSaveOrUpdate(dto);
+
+
+
                 }
+
                 ltlInfo.Text = BilgiGoster("Dersler vazgeçilmek üzere danışmana gönderildi.");
+            }
+            else
+            {
+                ltlInfo.Text = UyariGoster("Vazgeçilecek ders sayısını aştınız.");
             }
         }
 
-        protected void btnOnay_Click(object sender, EventArgs e)
-        {
-            grdOgrenci.Visible = false;
-        }
-        //protected void btnVazgec_Click(object sender, EventArgs e)
-        //{
-        //    //grdOgrenci.Columns[3].Visible = false;//geri al false olacak
-
-
-        //}
-        //protected void btnGeriAl_Click(object sender, EventArgs e)
-        //{
-
-        //    //grdOgrenci.Columns[2].Visible = false;//vazgec false olacak
-
-        //}
+   
 
         private void lblVazgecilecekDerslerGuncelle()
         {
@@ -251,7 +268,7 @@ namespace DerstenVazgecmeIslemleri
                     odIds += id.ToString() + ",";
                 }
                 odIds = odIds.Substring(0, odIds.Length - 1);
-                ///
+                //sondaki virgülü kaldırmak için
                 string sql = @"
                         select
                             od.OgrenciDersId,

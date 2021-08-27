@@ -95,15 +95,6 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.WebControls.Button btnDanismanaGonder;
         
         /// <summary>
-        /// btnOnay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOnay;
-        
-        /// <summary>
         /// lblAciklamaOgrenciBasvuruEkrani control.
         /// </summary>
         /// <remarks>
@@ -131,12 +122,21 @@ namespace DerstenVazgecmeIslemleri {
         protected global::System.Web.UI.WebControls.Label lblVazgecilecekDersler;
         
         /// <summary>
-        /// pnlUyari control.
+        /// pnlBasvuruKapaliUyarisi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUyari;
+        protected global::System.Web.UI.WebControls.Panel pnlBasvuruKapaliUyarisi;
+        
+        /// <summary>
+        /// pnlGanoUygunDegilUyarisi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlGanoUygunDegilUyarisi;
     }
 }

@@ -13,6 +13,8 @@ namespace DerstenVazgecmeIslemleri.DTOs
         public string OgrenciSoyad { get; set; }
         public string DersKodu { get; set; }
         public string DersAdi { get; set; }
+        public string DanismanAdi { get; set; }
+        public string DanismanSoyadi { get; set; }
      
 
     }

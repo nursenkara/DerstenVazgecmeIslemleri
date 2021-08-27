@@ -34,7 +34,7 @@
      <asp:Panel ID="pnlGenel" runat="server">
     <fieldset>
         <legend>
-            <asp:Label ID="lblDanismanVazgecmeIslemleri" runat="server" Text="Danışman Öğretmen Dersten Vazgeçme İşlemleri"></asp:Label>
+            <asp:Label ID="lblDanismanVazgecmeIslemleri" runat="server" Text="Danışman Öğretmen Dersten Vazgeçme Onaylama İşlemleri"></asp:Label>
         </legend>
         <br />
         <br />
@@ -55,11 +55,11 @@
                     </div>
                 </NoRecordsTemplate>
                 <Columns>
-                 <telerik:GridTemplateColumn>
+                <%-- <telerik:GridTemplateColumn>
                         <ItemTemplate>
                             <asp:CheckBox runat="server" ID="chkOnay" AutoPostBack="true" />
                         </ItemTemplate>
-                    </telerik:GridTemplateColumn>
+                    </telerik:GridTemplateColumn>--%>
                     <telerik:GridBoundColumn DataField="OgrenciAd" HeaderText="Öğrenci Adı" UniqueName="OgrenciAd" ItemStyle-Width="200px"
                         HeaderStyle-Width="150px" FilterControlWidth="100" ItemStyle-Wrap="true" />
                     <telerik:GridBoundColumn DataField="OgrenciSoyad" HeaderText="Öğrenci Soyadı" UniqueName="OgrenciSoyad"
@@ -74,6 +74,13 @@
                         <ItemTemplate>
                             <asp:Button ID="btnOnay" CommandName="cnOnay" runat="server" Text="Onay"></asp:Button>
                         </ItemTemplate>
+                         
+                    </telerik:GridTemplateColumn>
+                          <telerik:GridTemplateColumn>
+                        <ItemTemplate>
+                            <asp:Button ID="btnRed" CommandName="cnRed" runat="server" Text="Red"></asp:Button>
+                        </ItemTemplate>
+                         
                     </telerik:GridTemplateColumn>
                      
                 </Columns>
@@ -92,10 +99,12 @@
     <asp:Panel ID="pnlUyari" runat="server" Visible="false">
         <center>
             <h1>
-                Onaylama işlemi şu an kapalıdır.</h1>
+                Onaylama işlemi şu an kapalıdır.Onaylama tarihleri dışındasınız.</h1>
         </center>
     </asp:Panel>
      </form>
-    <script>window.addEventListener("load", _ => {document.title = "Danışman İşlemleri"});</script>
+    <script>
+    window.addEventListener("load", _ => {document.title = "Danışman İşlemleri"});
+    </script>
 </body>
 </html>
