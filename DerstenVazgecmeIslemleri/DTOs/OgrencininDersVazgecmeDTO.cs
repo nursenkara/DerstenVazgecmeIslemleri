@@ -34,5 +34,6 @@ namespace DerstenVazgecmeIslemleri.DTOs
         public int Donem { get; set; }
         public int DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu { get; set; }
         public decimal OgrenciIslerininBelirledigiGano { get; set; }
+        public decimal Gano { get; set; }
     }
 }

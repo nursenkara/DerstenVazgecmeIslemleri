@@ -87,6 +87,7 @@ namespace DerstenVazgecmeIslemleri
             //OgrenciIsleriGanosu = OgrenciUygulama.OgrenciIslerininBelirledigiGano(dto).ToDecimal() ?? new Decimal();
             yildonem_basvuru.DonemSelectedEventHandler += new UniOgrenci.Master.Web.UI.UserControls.YilDonemCombo.DonemSelected(yildonem_basvuru_DonemSelectedEventHandler);
 
+            btnListele_Click(null, null);
         }
 
         protected void yildonem_basvuru_DonemSelectedEventHandler(int yil, int donem)

@@ -229,6 +229,12 @@
                                                     <telerik:GridBoundColumn DataField="DanismanOnayBitisTarihi" HeaderText="Danışman Onay Bitiş Tarihi" DataFormatString="{0:dd.MM.yyyy}"
                                                         UniqueName="DanismanOnayBitisTarihi" ItemStyle-Width="150px" HeaderStyle-Width="150px"
                                                         FilterControlWidth="100" ItemStyle-Wrap="true" />
+                                                        <telerik:GridBoundColumn DataField="Gano" HeaderText="Gano" DataFormatString="{0:dd.MM.yyyy}"
+                                                        UniqueName="Gano" ItemStyle-Width="150px" HeaderStyle-Width="150px"
+                                                        FilterControlWidth="100" ItemStyle-Wrap="true" />
+                                                        <telerik:GridBoundColumn DataField="GanoSarti" HeaderText="Gano Şartı" DataFormatString="{0:dd.MM.yyyy}"
+                                                        UniqueName="GanoSarti" ItemStyle-Width="150px" HeaderStyle-Width="150px"
+                                                        FilterControlWidth="100" ItemStyle-Wrap="true" />
                                                 </Columns>
                                             </MasterTableView>
                                             <ClientSettings EnablePostBackOnRowClick="false" EnableRowHoverStyle="false" ReorderColumnsOnClient="false"

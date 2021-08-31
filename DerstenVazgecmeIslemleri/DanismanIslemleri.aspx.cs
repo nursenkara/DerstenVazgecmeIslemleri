@@ -35,7 +35,7 @@ namespace DerstenVazgecmeIslemleri
     {
 
 
-
+        #region Session'lar
         public List<int> DanismanaGonderilenDersler
         {
             get
@@ -93,8 +93,19 @@ namespace DerstenVazgecmeIslemleri
                 PageSession["OgrenciId"] = value;
             }
         }
+        public OgrencininDersVazgecmeDTO AktifYilDonem
+        {
+            get
+            {
+                return FromPageSession<OgrencininDersVazgecmeDTO>("AktifYilDonem", null);
+            }
+            set
+            {
+                PageSession["AktifYilDonem"] = value;
+            }
+        }
 
-
+        #endregion
         protected override int UygulamaID
         {
             get { return 10008101; }
@@ -103,7 +114,11 @@ namespace DerstenVazgecmeIslemleri
         protected void Page_Load(object sender, EventArgs e)
         {
             DanismanId = 24888;
+            AktifYilDonem = OgrenciUygulama.AktifYilDonem();
             OgrenciDersGoruntulemeDTO das = new OgrenciDersGoruntulemeDTO();
+            OgrencininDersVazgecmeDTO dto = new OgrencininDersVazgecmeDTO();
+            dto.Yil = AktifYilDonem.Yil;
+            dto.Donem = AktifYilDonem.Donem;
             das.DanismanAdi = OgrenciUygulama.DanismanAdiniSoyadiniGetir(DanismanId).DanismanAdi;
             das.DanismanSoyadi = OgrenciUygulama.DanismanAdiniSoyadiniGetir(DanismanId).DanismanSoyadi;
             Danisman = das.DanismanAdi + " " +das.DanismanSoyadi;

@@ -467,6 +467,7 @@ where Yil = {0} and Donem = {1}", ogrencininDersVazgecmeDTOsu.Yil, ogrencininDer
             string sqlBasvuruOncesiIlkKayitOgrenciIsleri = string.Format(@"
                 Insert into DersVazgecmeAktivite(
                         Gano,
+                        DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu,
                         OgrenciBasvuruBaslangicTarihi,
                         OgrenciBasvuruBitisTarihi,
                         DanismanOnayBaslangicTarihi,
@@ -478,6 +479,7 @@ where Yil = {0} and Donem = {1}", ogrencininDersVazgecmeDTOsu.Yil, ogrencininDer
                     )
                 values (
                         @Gano,
+                        @DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu,
                         @OgrenciBasvuruBaslangicTarihi,
                         @OgrenciBasvuruBitisTarihi,
                         @DanismanOnayBaslangicTarihi,
@@ -490,6 +492,8 @@ where Yil = {0} and Donem = {1}", ogrencininDersVazgecmeDTOsu.Yil, ogrencininDer
             ");
             DbCommand cmdInsert = OgrenciMaster.Database.GetSqlStringCommand(sqlBasvuruOncesiIlkKayitOgrenciIsleri);
             OgrenciMaster.Database.AddInParameter(cmdInsert, "Gano", DbType.Decimal, ogrencininDersVazgecmeDTOsu.OgrenciIslerininBelirledigiGano);
+            OgrenciMaster.Database.AddInParameter(cmdInsert, "DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu", DbType.Int32, ogrencininDersVazgecmeDTOsu.DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu);
+
             OgrenciMaster.Database.AddInParameter(cmdInsert, "OgrenciBasvuruBaslangicTarihi", DbType.DateTime, ogrencininDersVazgecmeDTOsu.OgrenciBasvuruBaslangicTarihi);
             OgrenciMaster.Database.AddInParameter(cmdInsert, "OgrenciBasvuruBitisTarihi", DbType.DateTime, ogrencininDersVazgecmeDTOsu.OgrenciBasvuruBitisTarihi);
             OgrenciMaster.Database.AddInParameter(cmdInsert, "DanismanOnayBaslangicTarihi", DbType.DateTime, ogrencininDersVazgecmeDTOsu.DanismanOnayBaslangicTarihi)
@@ -509,15 +513,17 @@ where Yil = {0} and Donem = {1}", ogrencininDersVazgecmeDTOsu.Yil, ogrencininDer
         public List<OgrencininDersVazgecmeDTO> OgrenciIsleriKayitlariListele()
         {
             string sql = string.Format(@"select 
-DersVazgecmeAktiviteID,
-OgrenciBasvuruBaslangicTarihi,       
-OgrenciBasvuruBitisTarihi,
-DanismanOnayBaslangicTarihi,
-DanismanOnayBitisTarihi,
-Yil,
-Donem
-from DersVazgecmeAktivite 
-");
+                                        DersVazgecmeAktiviteID,
+                                        Gano,
+                                        DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu,
+                                        OgrenciBasvuruBaslangicTarihi,       
+                                        OgrenciBasvuruBitisTarihi,
+                                        DanismanOnayBaslangicTarihi,
+                                        DanismanOnayBitisTarihi,
+                                        Yil,
+                                        Donem
+                                        from DersVazgecmeAktivite 
+                                        ");
             DbCommand cmd = OgrenciMaster.Database.GetSqlStringCommand(sql);
             DataTable dt = OgrenciMaster.Database.ExecuteDatatable(cmd);
 
@@ -527,6 +533,8 @@ from DersVazgecmeAktivite
     .Select(row => new OgrencininDersVazgecmeDTO
     {
         DersVazgecmeAktiviteId = row.Field<int>("DersVazgecmeAktiviteID"),
+        Gano = row.Field<decimal>("Gano"),
+        DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu = row.Field<int>("DerstenVazgecebilmekIcinGanoyaGoreBasvuruDurumu"),
         OgrenciBasvuruBaslangicTarihi = row.Field<DateTime>("OgrenciBasvuruBaslangicTarihi"),
         OgrenciBasvuruBitisTarihi = row.Field<DateTime>("OgrenciBasvuruBitisTarihi"),
         DanismanOnayBaslangicTarihi = row.Field<DateTime>("DanismanOnayBaslangicTarihi"),
